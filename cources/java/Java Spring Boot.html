@@ -1,0 +1,3845 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Java Spring Boot</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    #scrollTopBtn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+        padding: 10px 14px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: none;
+        background: #1a1a1a;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.6;
+        display:none;
+    }
+
+    #scrollTopBtn:hover {
+        opacity:1;
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Java Spring Boot</h1>
+</header>
+<nav id="TOC">
+    <h2>Оглавление</h2>
+    <ul id="toc-list"></ul>
+</nav>
+<h2 id="настройка-бинов">Настройка бинов</h2>
+<h2 id="пример-приложения-на-springboot">Пример приложения на
+SpringBoot</h2>
+<ul>
+<li>https://github.com/hexlet-components/java-spring-blog/tree/main</li>
+</ul>
+<h2 id="создание-проекта-на-gradle">Создание проекта на Gradle</h2>
+<ul>
+<li>Инициализируем проект
+<ul>
+<li>gradle init
+<ul>
+<li>basic далее enter</li>
+</ul></li>
+</ul></li>
+<li>настроим build.gradle.kts</li>
+</ul>
+<pre><code>import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.api.plugins.quality.Checkstyle
+
+plugins {
+    java
+    id(&quot;checkstyle&quot;)
+    id(&quot;org.springframework.boot&quot;) version &quot;3.5.3&quot;
+    id(&quot;io.spring.dependency-management&quot;) version &quot;1.1.3&quot;
+    application
+    id(&quot;com.github.ben-manes.versions&quot;) version &quot;0.48.0&quot;
+}
+
+group = &quot;exercise&quot;
+
+version = &quot;1.0-SNAPSHOT&quot;
+
+application { mainClass.set(&quot;exercise.Application&quot;) }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // BEGIN
+    implementation(&quot;org.springframework.boot:spring-boot-starter&quot;)
+    implementation(&quot;org.springframework.boot:spring-boot-starter-web&quot;)
+    implementation(&quot;org.springframework.boot:spring-boot-devtools&quot;)
+    // END
+    testImplementation(&quot;org.springframework.boot:spring-boot-starter-test&quot;)
+    testImplementation(platform(&quot;org.junit:junit-bom:5.10.0&quot;))
+    testImplementation(&quot;org.junit.jupiter:junit-jupiter:5.10.0&quot;)
+    testImplementation(&quot;org.hamcrest:hamcrest:2.2&quot;)
+}
+
+checkstyle {
+    toolVersion = &quot;8.41&quot;
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        showStandardStreams = true
+    }
+}
+
+tasks.register&lt;Checkstyle&gt;(&quot;checkExercises&quot;) {
+    val exerciseName = project.findProperty(&quot;exercise&quot;)?.toString() ?: &quot;&quot;
+
+    val dirsToCheck = file(&quot;.&quot;).listFiles()
+        ?.filter { it.isDirectory }
+        ?.map { File(it, exerciseName) }
+        ?.filter { it.exists() }
+        ?: emptyList()
+
+    source(dirsToCheck)
+    include(&quot;**/*.java&quot;)
+    exclude(&quot;**/build/**&quot;)
+    classpath = files()
+}
+</code></pre>
+<ul>
+<li>org.springframework.boot:spring-boot-starter
+<ul>
+<li>пакет для логирования, пакет для авто конфигурирования</li>
+</ul></li>
+<li>org.springframework.boot:spring-boot-starter-test
+<ul>
+<li>все необходимое для тестирования</li>
+</ul></li>
+<li>org.springframework.boot:spring-boot-starter-web
+<ul>
+<li>все нужное для работы с HTTP</li>
+</ul></li>
+<li>org.springframework.boot:spring-boot-devtools
+<ul>
+<li>инструменты для разработчиков</li>
+</ul></li>
+<li>Плагин dependency-management упрощает работу с зависимостями</li>
+<li>пример простого сервера</li>
+</ul>
+<pre><code>package io.hexlet.spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+    @GetMapping(&quot;/&quot;)
+    String home() {
+        return &quot;Hello World!&quot;;
+    }
+}</code></pre>
+<ul>
+<li><p><span class="citation"
+data-cites="SpringBootApplication">@SpringBootApplication</span></p>
+<ul>
+<li>выполняет авто конфигурацию приложения по установленным
+зависимостям</li>
+<li>стартер web добавляет Tomcat и Spring MVC, настраивая Spring Boot на
+работу в режиме веб-приложения</li>
+</ul></li>
+<li><p>1 отмечает классы, которые содержат обработку маршрутов</p></li>
+<li><p><span class="citation" data-cites="GetMapping">@GetMapping</span>
+- Обработчик маршрута / — он определяется аннотацией <span
+class="citation" data-cites="GetMapping">@GetMapping</span> и маршрутом,
+переданным в нее.</p></li>
+<li><p>запуск приложения</p>
+<ul>
+<li>./gradlew bootRun</li>
+</ul></li>
+<li><p>запуск тестов</p>
+<ul>
+<li>gradle test</li>
+</ul></li>
+<li><p>запуск линтера</p>
+<ul>
+<li>gradle checkExercises (НО сначала сделать ниже)</li>
+<li>создать файл config/checkstyle/checkstyle.xml
+<ul>
+<li>скопировать из
+https://github.com/hexlet-boilerplates/java-package/blob/main/config/checkstyle/checkstyle.xml</li>
+</ul></li>
+<li>добавить в build.gradle.kts</li>
+</ul>
+<pre><code>  import org.gradle.api.plugins.quality.Checkstyle
+
+  plugins {
+    id(&quot;checkstyle&quot;)
+
+    ...
+  }
+  checkstyle {
+      toolVersion = &quot;8.41&quot;
+    }
+  tasks.register&lt;Checkstyle&gt;(&quot;checkExercises&quot;) {
+  val exerciseName = project.findProperty(&quot;exercise&quot;)?.toString() ?: &quot;&quot;
+
+  val dirsToCheck = file(&quot;.&quot;).listFiles()
+      ?.filter { it.isDirectory }
+      ?.map { File(it, exerciseName) }
+      ?.filter { it.exists() }
+      ?: emptyList()
+
+  source(dirsToCheck)
+  include(&quot;**/*.java&quot;)
+  exclude(&quot;**/build/**&quot;)
+  classpath = files()
+  }</code></pre></li>
+</ul>
+<h3 id="аннотации">Аннотации</h3>
+<ul>
+<li>это механизм со своим синтаксисом, который позволяет добавлять
+метаданные в код
+<ul>
+<li>аннотация не превращается в метод, она остается меткой с
+дополнительными полями</li>
+<li>можно использовать для классов, методов и параметров</li>
+</ul></li>
+<li>встроенные
+<ul>
+<li><span class="citation" data-cites="Deprecated">@Deprecated</span> -
+помечает класс или метод как устаревший</li>
+<li><span class="citation" data-cites="Override">@Override</span> -
+метод должен быть переопределим</li>
+</ul></li>
+<li>кастомные
+<ul>
+<li>обязательные аннотации
+<ul>
+<li><span class="citation" data-cites="interface">@interface</span> -
+определяет саму аннотация</li>
+<li><span class="citation" data-cites="Retention">@Retention</span> -
+определяет жизненный цикл, то есть указывает как долго аннотация должна
+оставаться с кодом</li>
+<li><span class="citation" data-cites="Target">@Target</span> -
+определяет, где мы будем использовать аннотацию</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface LogExecutionTime {
+}
+      
+package exercise;
+
+import exercise.annotation.LogExecutionTime;
+
+public class SomeService {
+@LogExecutionTime
+public void server() throws InterruptedException {
+  Thread.sleep(1500);
+  System.out.println(&quot;Executed method: server&quot;);
+}
+
+public void anotherMethod() {
+    System.out.println(&quot;Executed method: anotherMethod&quot;);
+}
+}</code></pre>
+<ul>
+<li>если параметры есть в аннотации, их надо добавлять при
+использовании</li>
+</ul>
+<pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface LogExecutionTime {
+    boolean enabled();
+    long threshold() default 0;  // Пороговое время в миллисекундах
+}
+
+@LogExecutionTime(enabled = true)
+  public void serve() throws InterruptedException {
+      Thread.sleep(1500);  // Выполняем какую-то задачу
+  }
+
+@LogExecutionTime(enabled = true, threshold = 100)
+public void anotherMethod() {
+}</code></pre>
+<h2 id="http-и-crud-приложенияspring-boot">HTTP и CRUD приложения—Spring
+Boot</h2>
+<ul>
+<li>модели кладут в папку /src/moan/java/com/volk/name_app/model</li>
+<li>используем Lombok для моделей и их использования</li>
+</ul>
+<pre><code>package exercise.model;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@Setter
+@Getter
+public class Page {
+    // Используется как идентификатор в ссылках /pages/about
+    // Здесь about — это слаг
+    private String slug;
+    private String name;
+    private String body;
+}
+
+
+@SpringBootApplication
+@RestController
+public class Application {
+    private final List&lt;Page&gt; pages = new ArrayList&lt;Page&gt;();
+
+    @GetMapping(&quot;/&quot;)
+    String home() {
+        return &quot;Hello World!&quot;;
+    }
+
+    @GetMapping(&quot;/pages&quot;) // Список страниц
+    public List&lt;Page&gt; index(@RequestParam(defaultValue = &quot;10&quot;) Integer limit) {
+        return pages.stream().limit(limit).toList();
+    }
+
+    @PostMapping(&quot;/pages&quot;) // Создание страницы
+    public Page create(@RequestBody Page page) {
+        pages.add(page);
+        return page;
+    }
+    
+    @DeleteMapping(&quot;/pages/{id}&quot;) // Удаление страницы
+    public void destroy(@PathVariable String id) {
+        pages.removeIf(p -&gt; p.getSlug().equals(id));
+    }
+}
+</code></pre>
+<ul>
+<li><ol class="example" type="1">
+<li>Эта аннотация указывает на классы, которые содержат обработчики
+маршрутов</li>
+</ol></li>
+<li>превращение в JSON - автоматически с помощью библиотеки Jackson.
+<ul>
+<li>Она входит в пакет spring-boot-starter-json, который подключается
+через spring-boot-starter-web.</li>
+</ul></li>
+<li><span class="citation"
+data-cites="DeleteMapping">@DeleteMapping</span>(“/pages/{id}”) public
+void destroy(<span class="citation"
+data-cites="PathVariable">@PathVariable</span> String id) - id путь
+после /pages
+<ul>
+<li>id имя параметр должен совпадать с именем переменной в шаблоне</li>
+</ul></li>
+<li><span class="citation" data-cites="RequestBody">@RequestBody</span>
+- автоматически создает объект этого типа и заполняет его данными,
+которые были в теле
+<ul>
+<li>Для работы этого механизма имена полей в Page должны совпадать с
+именами в теле запроса.</li>
+<li>При этом данных может быть отправлено меньше, чем содержится в
+Page.</li>
+</ul></li>
+</ul>
+<pre><code>отправляем POST 
+{
+    &quot;body&quot;: &quot;somebody&quot;,
+    &quot;name&quot;: &quot;somename&quot;,
+    &quot;slug&quot;: &quot;someslug&quot;
+}
+
+public class Page {
+    // Используется как идентификатор в ссылках /pages/about
+    // Здесь about — это слаг
+    private String slug;
+    private String name;
+    private String body;
+}</code></pre>
+<h3 id="объект-responseentity">Объект ResponseEntity</h3>
+<ul>
+<li>для код ответа или своих заголовков используем ResponseEntity</li>
+</ul>
+<pre><code>@GetMapping(&quot;/pages&quot;) // Список страниц
+    public ResponseEntity&lt;List&lt;Page&gt;&gt; index(@RequestParam(defaultValue = &quot;10&quot;) Integer limit) {
+        var result = pages.stream().limit(limit).toList();
+
+        return ResponseEntity.ok()
+                .header(&quot;X-Total-Count&quot;, String.valueOf(pages.size()))
+                .body(result);
+    }
+    
+@GetMapping(&quot;/pages/{id}&quot;) // Вывод страницы
+    public ResponseEntity&lt;Page&gt; show(@PathVariable String id) {
+        var page = pages.stream()
+                .filter(p -&gt; p.getSlug().equals(id))
+                .findFirst();
+
+        return ResponseEntity.of(page); // вернет 404 если не найден
+    }</code></pre>
+<ul>
+<li>значение оборачивается в ResponseEntity.
+<ul>
+<li>Это значит, что с его введением придется работать через него
+целиком</li>
+</ul></li>
+<li>ResponseEntity вам пригодится еще три метода:</li>
+<li>status(), чтобы указать произвольный статус</li>
+<li>of(), чтобы работать с Optional</li>
+<li>ok(), который принимает тело ответа и немного укорачивает запись.
+Это полезно, когда не нужно вызывать дополнительные методы</li>
+</ul>
+<pre><code>@PostMapping(&quot;/pages&quot;)
+      public ResponseEntity&lt;Page&gt; create(@RequestBody Page page) {
+          pages.add(page);
+          return ResponseEntity.status(HttpStatus.CREATED).body(page); // вернет 201
+      }</code></pre>
+<h3 id="rest-api-в-spring-boot">REST API в Spring Boot</h3>
+<ul>
+<li><p>Spring Boot в основном используется для создания API</p></li>
+<li><p>хорошая практика для API - использовать /api/v1</p></li>
+</ul>
+<pre><code>import org.springframework.web.bind.annotation.RequestMapping;
+// Остальные импорты
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class UsersController {
+    @GetMapping(&quot;/users&quot;)
+    public String index() { /* код */ }
+}</code></pre>
+<ul>
+<li>коды ответа можно через ResponseEntity либо ResponseStatus</li>
+</ul>
+<pre><code>import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+// Остальные импорты
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class UsersController {
+    @PostMapping(&quot;/users&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public User create() { /* код */ }
+}</code></pre>
+<h2 id="конфигурация-spring-boot">Конфигурация Spring Boot</h2>
+<ul>
+<li>В конфигурацию фреймворка может входить:
+<ul>
+<li>Включение цветного вывода логов</li>
+<li>Настройки сервера — порта или адреса, на котором сервер должен
+работать</li>
+<li>Уровни логирования для разных компонентов фреймворка</li>
+<li>Настройки взаимодействия с базой данных</li>
+<li>Конфигурация библиотек</li>
+</ul></li>
+<li>Основная конфигурация Spring Boot хранится в файле application.yml
+<ul>
+<li>расположенном в директории src/main/resources.</li>
+<li>по умолчанию его нет</li>
+</ul></li>
+</ul>
+<pre><code>---
+logging:
+  level:
+    root: WARN
+
+spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  output:
+    ansi:
+      enabled: always
+
+server:
+  address: 0.0.0.0</code></pre>
+<ul>
+<li>src/main/resources/application.yml не единственный способ
+настройки</li>
+<li>более распространенный
+src/main/resources/application.properties</li>
+</ul>
+<pre><code>logging.level.root=WARN
+spring.jpa.generate-ddl=true
+spring.jpa.show-sql=true
+spring.output.ansi.enabled=always
+server.address=0.0.0.0</code></pre>
+<ul>
+<li>опции
+<ul>
+<li>spring.output.ansi.enabled Включает цветной вывод логов, что
+упрощает их анализ</li>
+<li>spring.jpa.show-sql Выводит в лог SQL-запросы</li>
+</ul></li>
+</ul>
+<pre><code>spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  output:
+    ansi:
+      enabled: always</code></pre>
+<ul>
+<li>Обычно в их документации рекомендуется размещать опции в файлах по
+названию библиотек:
+<ul>
+<li>src/main/resources/name.properties</li>
+<li>при этом Все опции можно хранить в application.yml, но сначала их
+нужно правильно перенести</li>
+<li>Если библиотека предлагает хранить опции в файле name.properties, то
+в файле application.yml</li>
+<li>эти опции нужно расположить внутри ключа spring.</li>
+<li>пример для библиотеки instancio</li>
+</ul></li>
+</ul>
+<pre><code>spring:
+  instancio:
+    bean:
+      validation:
+        enabled: true</code></pre>
+<ul>
+<li>использование своих опций
+<ul>
+<li>обычно хранятся на верхнем уровне</li>
+</ul></li>
+</ul>
+<pre><code>myoption:
+  key: value
+  another:
+    inner:
+      key: true</code></pre>
+<ul>
+<li><span class="citation"
+data-cites="Value">@Value</span>(“${myoption.key}”) - для использования
+опций</li>
+<li>но так не удобно, ибо каждый раз надо писать полный путь</li>
+</ul>
+<pre><code>// Здесь нужно указать полный путь до опции
+@Value(&quot;${spring.instancio.bean.validation.enabled}&quot;)
+private Boolean instancioEnabled;
+
+@Value(&quot;${myoption.key}&quot;)
+private String myoptionValue;</code></pre>
+<ul>
+<li>можно создать класс, объект которого Spring Boot автоматически
+заполнит данными и конфига</li>
+</ul>
+<pre><code>import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(prefix = &quot;user&quot;)
+@Setter
+@Getter
+public class DefaultUserProperties {
+    private String fullName;
+    private Integer age;
+}</code></pre>
+<ul>
+<li><span class="citation" data-cites="Component">@Component</span>,
+которая указывает, что Spring Boot должен воспринимать этот класс как
+часть системы</li>
+<li><span class="citation"
+data-cites="ConfigurationProperties">@ConfigurationProperties</span>,
+которая указывает, что этот класс отвечает за работу со свойствами под
+ключом user</li>
+<li>чтобы использовать используем как свойство в классе с аннотацией
+<span class="citation" data-cites="Autowired">@Autowired</span></li>
+</ul>
+<pre><code>@Autowired // Аннотация нужна для автоподстановки объекта
+private DefaultUserProperties userInfo;
+
+// Где-то в методах используем
+userInfo.getFullName();
+userInfo.getAge();</code></pre>
+<ul>
+<li>но такой компонент можно использовать в сервисе в контексте Spring
+Boot</li>
+</ul>
+<pre><code>@Service
+public class SomeService {
+    @Autowired
+    private DefaultUserProperties userInfo;
+    
+    public void anotherMethod() {
+        System.out.println(&quot;user name &quot; + userInfo.getFullName());
+        System.out.println(&quot;user age &quot; + userInfo.getAge());
+    }
+
+// main
+ApplicationContext context =SpringApplication.run(Application.class, args);
+
+SomeService service =context.getBean(SomeService.class);
+service.anotherMethod();</code></pre>
+<h2 id="спецификация-jpa-entity">Спецификация JPA Entity</h2>
+<ul>
+<li>Для работы с базой данных Spring Boot использует Spring Data JPA
+(Jakarta Persistence API).</li>
+<li>Цель Spring Data JPA
+<ul>
+<li>автоматизировать типовые операции по работе с базой данных, то есть
+создание, изменение, удаление и извлечение</li>
+</ul></li>
+<li>Механизм состоит из двух элементов:
+<ul>
+<li>Модель - класс, который соотноситься с таблицей в БД</li>
+<li>Репозиторий - класс, отвечающий за CRUD - операции над сущностью и
+ее коллекциями</li>
+</ul></li>
+</ul>
+<pre><code>var user = new User(/* данные */);
+userRepository.save(user); // Создание
+
+user.setName(&quot;Another name&quot;)
+userRepository.save(user); // Обновление
+
+userRepository.deleteById(user.getId()); // Удаление
+
+var user2 = userRepository.findById(/* идентификатор */);</code></pre>
+<ul>
+<li>Spring Data JPA автоматически генерирует репозитории для модели на
+основе того, как модель проаннотирована.
+<ul>
+<li>В свою очередь, аннотирование модели опирается на структуру таблицы
+в базе данных.</li>
+</ul></li>
+</ul>
+<pre><code>import static jakarta.persistence.GenerationType.IDENTITY;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = &quot;users&quot;)
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class User {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @EqualsAndHashCode.Include
+    private Long id;
+
+    @Column(unique = true)
+    private String email;
+
+    private String firstName;
+
+    private String lastName;
+}</code></pre>
+<ul>
+<li>Сама по себе модель — это обычный POJO-класс с полями, геттерами,
+сеттерами и конструкторами, если нужно
+<ul>
+<li>Добавление аннотаций никак не влияет на сам класс, но зато оно
+помогает Spring Data JPA сгенерировать код репозитория</li>
+</ul></li>
+<li>Аннотация <span class="citation" data-cites="Entity">@Entity</span>
+указывает, что эта модель считается сущностью, связанной с таблицей в
+базе данных</li>
+<li>Аннотация <span class="citation" data-cites="Table">@Table</span>
+задает имя таблицы</li>
+<li>По умолчанию любое добавленное поле в модель отображается на базу
+данных при условии сопоставления имен. Работает это так:
+<ul>
+<li>Spring Data JPA выполняет запрос в базу и извлекает структуру
+таблицы</li>
+<li>Поля транслируются из snake_case в camelCase и сравниваются</li>
+<li>Если поле найдено, оно будет отображаться на базу данных во время
+работы с репозиторием</li>
+</ul></li>
+<li>если нужно создать уникальный индекс, используем <span
+class="citation" data-cites="Column">@Column</span>(указываем что нужно)
+<ul>
+<li>Максимальную длину length</li>
+<li>Отсутствие null-значений nullable</li>
+<li>Имя колонки, если оно отличает от стандартного name</li>
+</ul></li>
+</ul>
+<pre><code>@Column(name = &quot;email&quot;, unique = true, nullable = false, length = 200)
+private String email;</code></pre>
+<h3 id="репозиторий-jpa">Репозиторий JPA</h3>
+<ul>
+<li>Репозиторий в исходных файлах – это интерфейс, помеченный аннотацией
+<span class="citation" data-cites="Repository">@Repository</span>.
+<ul>
+<li>Spring Data JPA берет этот интерфейс и создает из него класс,
+который автоматически подставляется в приложение</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import io.hexlet.spring.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+}
+
+// использование
+userRepository.save(user);
+Optional&lt;User&gt; user = userRepository.findById(id)
+List&lt;User&gt; users = userRepository.findAll();
+userRepository.deleteById(id);</code></pre>
+<ul>
+<li>можно дописать свои методы</li>
+<li>аннотация <span class="citation"
+data-cites="Autowired">@Autowired</span> - есть Инъекция зависимости!!
+<ul>
+<li>пример, использования в контроллере репозитория</li>
+</ul></li>
+</ul>
+<pre><code>public class UsersController {
+
+    @Autowired
+    private UserRepository userRepository;</code></pre>
+<ul>
+<li>БД H2 - аналог sqlite только в основном для Java</li>
+</ul>
+<pre><code>dependencies {
+    runtimeOnly(&quot;com.h2database:h2&quot;)
+}
+
+spring:
+  jpa:
+    show-sql: true // Заодно включает показ sql-запросов
+    hibernate:
+      ddl-auto: update</code></pre>
+<h2 id="обработка-ошибок">Обработка ошибок</h2>
+<ul>
+<li>выделяем две группы ошибок:
+<ul>
+<li>внутри Spring Boot - фреймворк генерирует в ответ на разные
+ситуации</li>
+<li>в коде приложения - ошибки в коде или в коде библиотек нашего кода
+<ul>
+<li>Если ничего специально не делать, то любые ошибки внутри кода
+приложения будут автоматически приводиться к HTTP-коду 500</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>// Список всех автоматически обрабатываемых ошибок
+HttpRequestMethodNotSupportedException
+HttpMediaTypeNotSupportedException
+HttpMediaTypeNotAcceptableException
+MissingPathVariableException
+MissingServletRequestParameterException
+MissingServletRequestPartException
+ServletRequestBindingException
+MethodArgumentNotValidException
+NoHandlerFoundException
+AsyncRequestTimeoutException
+ErrorResponseException
+ConversionNotSupportedException
+TypeMismatchException
+HttpMessageNotReadableException
+HttpMessageNotWritableException
+BindException</code></pre>
+<ul>
+<li>Обработкой этих ошибок в Spring Boot занимается класс
+ResponseEntityExceptionHandler
+<ul>
+<li>вызывается автоматически для обработки любых ошибок, возникающих во
+время обработки маршрута</li>
+</ul></li>
+<li>Определите свой обработчик ошибок на базе
+ResponseEntityExceptionHandler
+<ul>
+<li>Создать исключение</li>
+</ul></li>
+</ul>
+<pre><code>package io.hexlet.spring.exception;
+
+// Имя класса исключения не принципиально
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
+}</code></pre>
+<ul>
+<li>Реализовать глобальный обработчик этого исключения</li>
+</ul>
+<pre><code>// Используем созданное исключение
+import io.hexlet.spring.exception.ResourceNotFoundException;
+
+@ControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity&lt;String&gt; handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+}</code></pre>
+<ul>
+<li><span class="citation"
+data-cites="ControllerAdvice">@ControllerAdvice</span> указывает, что
+этот класс отвечает за централизованную обработку исключений</li>
+<li><span class="citation"
+data-cites="ExceptionHandler">@ExceptionHandler</span> указывает, какое
+исключение должно обрабатываться проаннотированным методом</li>
+<li>Далее внедрить исключение в маршрут</li>
+</ul>
+<pre><code>@GetMapping(&quot;/users/{id}&quot;)
+@ResponseStatus(HttpStatus.OK)
+public User show(@PathVariable Long id) {
+    var user = userRepository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(id + &quot; Not Found&quot;));
+    return user;
+}</code></pre>
+<h2 id="сравнение-сущностей">Сравнение сущностей</h2>
+<ul>
+<li>проблема в том как сравнивать два объекта по значению или по
+ссылке</li>
+<li>в Java по умолчанию классы сравниваются по ссылке</li>
+</ul>
+<pre><code>class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  equals (other) {
+    return this.x === other.x &amp;&amp; this.y === other.y;
+  }
+}
+const p1 = new Point(2,3);
+const p2 = new Point(2,3);
+assert(p1.equals(p2));
+
+// либо
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.EqualsAndHashCode;
+
+@AllArgsConstructor
+@Getter
+@EqualsAndHashCode~~~~~~~~
+class City {
+    private String name;
+}
+
+var city1 = new City(&quot;London&quot;);
+var city2 = new City(&quot;London&quot;);
+
+city1.equals(city2); // true</code></pre>
+<ul>
+<li>при этом !!Объекты-значения должны быть неизменяемы</li>
+<li>equals сравнивает содержимое объектов, то есть значения их полей
+<ul>
+<li>по умолчанию сравнивает ссылки this == obj</li>
+</ul></li>
+<li><span class="citation"
+data-cites="EqualsAndHashCode">@EqualsAndHashCode</span> от Lombok
+автоматически генерирует:
+<ul>
+<li>Переопределённый equals(Object o), который сравнивает поля объекта
+(по значению).</li>
+<li>Переопределённый hashCode(), который вычисляется на основе этих же
+полей.</li>
+<li>можно указать точно по какому полю делать хеш</li>
+</ul></li>
+</ul>
+<pre><code>@AllArgsConstructor
+@Getter
+@EqualsAndHashCode(of = {&quot;id&quot;})
+class User {
+    private String id;
+    private String firstName;
+    private String lastName;
+}
+
+var user1 = new User(1, &quot;John&quot;, &quot;Travolta&quot;);
+var user2 = new User(2, &quot;John&quot;, &quot;Travolta&quot;);
+
+user1.equals(user2); // false
+
+var user3 = new User(1, &quot;Mike&quot;, &quot;Travolta&quot;);
+
+// Равны, потому что это один и тот же человек
+user1.equals(user3); // true</code></pre>
+<ul>
+<li>Зависимость нужна для работы механизма Spring Data JPA
+<ul>
+<li>implementation(“org.springframework.boot:spring-boot-starter-data-jpa”)</li>
+</ul></li>
+</ul>
+<h2 id="аудит-в-jpa">Аудит в JPA</h2>
+<ul>
+<li>аудит выясняет:
+<ul>
+<li>кто создал запись?</li>
+<li>когда создана запись?</li>
+<li>кем создана?</li>
+</ul></li>
+<li>в Spring Boot за аудит отвечает Auditing</li>
+<li>для включения Auditing добавляем аннотацию <span class="citation"
+data-cites="EnableJpaAuditing">@EnableJpaAuditing</span> вначале
+приложения</li>
+</ul>
+<pre><code>@SpringBootApplication
+@EnableJpaAuditing
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}</code></pre>
+<ul>
+<li>добавляем слушателя для той сущности которую хотим аудитить
+<ul>
+<li><span class="citation"
+data-cites="EntityListeners">@EntityListeners</span>(AuditingEntityListener.class)</li>
+</ul></li>
+</ul>
+<pre><code>import java.time.LocalDate;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+// Остальные импорты
+
+@Entity
+@Table(name = &quot;users&quot;)
+@EntityListeners(AuditingEntityListener.class)
+@Setter
+@Getter
+class User {
+    // Остальные поля
+
+    @LastModifiedDate
+    private LocalDate updatedAt;
+
+    @CreatedDate
+    private LocalDate createdAt;
+}</code></pre>
+<ul>
+<li>Метаданные аудита на основе аннотаций
+<ul>
+<li><span class="citation" data-cites="CreatedByи">@CreatedByи</span>
+<span class="citation" data-cites="LastModifiedB">@LastModifiedB</span>
+фиксируем пользователя, который создал или изменил объект</li>
+<li><span class="citation" data-cites="CreatedDate">@CreatedDate</span>
+время, <span class="citation"
+data-cites="LastModifiedDate">@LastModifiedDate</span> внесения
+изменений.</li>
+<li>метаданные можно выделить встроить в сущность</li>
+</ul></li>
+</ul>
+<pre><code>class Customer {
+
+private AuditMetadata auditingMetadata;
+
+// … further properties omitted
+}
+
+class AuditMetadata {
+
+@CreatedBy
+private User user;
+
+@CreatedDate
+private Instant createdDate;
+
+}</code></pre>
+<h2 id="возможности-jpa-repository">Возможности JPA Repository</h2>
+<ul>
+<li>https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html</li>
+<li>JpaRepository - предоставляет встроенные методы, а также
+автоматическую генерацию кастомных методов</li>
+<li>CRUD операции
+<ul>
+<li>save, findById, findAll, count, deleteById, delete</li>
+</ul></li>
+<li>генерация кастомных
+<ul>
+<li>надо добавить определение нужного метода или методов</li>
+</ul></li>
+</ul>
+<pre><code>@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+    Optional&lt;User&gt; findByEmail(String email);
+    List&lt;User&gt; findAllByEmail(String email);
+
+    // Поддерживаются OR и AND
+    List&lt;User&gt; findAllByEmailOrUsername(String email, String username);
+    List&lt;User&gt; findAllByEmailAndUsername(String email, String username);
+}
+
+  // либо трансляция SQL
+    // name != value
+    List&lt;User&gt; findAllByNameIsNot(String name);
+    
+    // name IS NULL
+    List&lt;User&gt; findAllByNameIsNull();
+    
+    // name IS NOT NULL
+    List&lt;User&gt; findAllByNameIsNotNull();
+    
+    // active = &#39;true&#39;
+    List&lt;User&gt; findByActiveTrue();
+    
+    // name LIKE &#39;value%&#39;
+    List&lt;User&gt; findByNameStartingWith(String prefix);
+    
+    // name LIKE &#39;%value&#39;
+    List&lt;User&gt; findByNameEndingWith(String suffix);
+
+    List&lt;User&gt; findByAgeLessThan(Integer age);
+    List&lt;User&gt; findByAgeLessThanEqual(Integer age);
+
+    List&lt;User&gt; findByAgeBetween(Integer startAge, Integer endAge);
+
+    List&lt;User&gt; findByAgeIn(Collection&lt;Integer&gt; ages);
+
+    List&lt;User&gt; findByNameOrderByName(String name);
+    List&lt;User&gt; findByNameOrderByNameDesc(String name);</code></pre>
+<ul>
+<li>сортировка с помощью комбинации методов и вложенных классов
+Sort</li>
+</ul>
+<pre><code>import org.springframework.data.domain.Sort;
+
+// Добавляет ORDER
+var users = userRepository.findAll(Sort.by(Sort.Order.asc(&quot;name&quot;)));</code></pre>
+<ul>
+<li>пагинация
+<ul>
+<li>Обычно текущая страница приходит как параметр запроса.</li>
+<li>По умолчанию страница равна единице.</li>
+<li>Это не совпадает с тем, как работает PageRequest — он отображается
+напрямую на OFFSET, где базовое значение равно
+<ol start="0" type="1">
+<li></li>
+</ol></li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.data.domain.PageRequest;
+
+// Добавляет LIMIT 5 OFFSET 0
+// 0 — это страница, 5 — это количество элементов
+// Возвращает Page&lt;User&gt;
+var usersPage = userRepository.findAll(PageRequest.of(0, 5));
+
+// лучше 
+public Page&lt;User&gt; index(@RequestParam(defaultValue = &quot;1&quot;) int page) {
+    var usersPage = userRepository.findAll(PageRequest.of(page - 1, 5));
+    return usersPage;
+}</code></pre>
+<ul>
+<li>сортировка с учетом пагинации</li>
+</ul>
+<pre><code>var sort = Sort.by(Sort.Order.asc(&quot;name&quot;));
+var pageRequest = PageRequest.of(0, 5, sort);
+var usersPage = userRepository.findAll(pageRequest);</code></pre>
+<ul>
+<li>кастомные запросы SQL с помощью <span class="citation"
+data-cites="Param">@Param</span>, <span class="citation"
+data-cites="Query">@Query</span>
+<ul>
+<li>использовать когда не остается другого выбора</li>
+</ul></li>
+</ul>
+<pre><code>package io.hexlet.spring.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import io.hexlet.spring.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+    @Query(&quot;SELECT e FROM User e WHERE e.name LIKE %:name%&quot;)
+    List&lt;User&gt; findAllByNameContaining(@Param(&quot;name&quot;) String name);
+}</code></pre>
+<h2 id="инверсия-зависимостей">Инверсия зависимостей</h2>
+<ul>
+<li>классический способ выполнить подстановку зависимостей - инъекция
+черещ конструктор</li>
+</ul>
+<pre><code>@RestController
+@RequestMapping(&quot;/users&quot;)
+public class UserController {
+
+    private UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    // Где-то здесь в методах используем userRepository
+}</code></pre>
+<ul>
+<li>более распространенный и простой <span class="citation"
+data-cites="Autowired">@Autowired</span></li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+
+@RestController
+@RequestMapping(&quot;/users&quot;)
+public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
+}</code></pre>
+<h2 id="бины-и-область-видимости">Бины и область видимости</h2>
+<ul>
+<li>В Spring бином называется объект, который управляется, создается и
+настраивается Spring-контейнером.
+<ul>
+<li>Эти объекты создаются на базе конфигурации, которая задается с
+помощью аннотаций.</li>
+<li>Только эти объекты участвуют в инъекции зависимостей при сборке
+Spring-приложения.</li>
+</ul></li>
+<li>чтобы превратить класс в бин, необходимы нотации:
+<ul>
+<li><span class="citation" data-cites="Component">@Component</span> —
+любой класс общего назначения, объект которого мы хотим получить в
+приложении</li>
+<li><span class="citation" data-cites="Repository">@Repository</span> —
+репозитории</li>
+<li>1 — контроллеры</li>
+</ul></li>
+<li>только так можно далее использовать его как объект с аннотацией
+<span class="citation" data-cites="Autowired">@Autowired</span></li>
+<li>datafaker, которая используется в тестах для генерации данных</li>
+</ul>
+<pre><code>import net.datafaker.Faker;
+
+var faker = new Faker();
+
+var name = faker.name().fullName(); // Miss Samanta Schmidt
+var firstName = faker.name().firstName(); // Emory
+var lastName = faker.name().lastName(); // Barton
+
+var streetAddress = faker.address().streetAddress(); // 60018 Sawayn Brooks Suite 449</code></pre>
+<ul>
+<li>первый способ использования datafaker создавать и использовать
+объект внутри теста</li>
+</ul>
+<pre><code>@SpringBootTest
+@AutoConfigureMockMvc
+public class UsersControllerTest {
+
+    @BeforeEach
+    public void setUp() {
+      var faker = new Faker();
+      // Тут создаем нужные данные
+    }</code></pre>
+<ul>
+<li>первый способ использования datafaker - создание бина с помощью
+метода
+<ul>
+<li>Для этого нужно создать метод внутри любого класса, помеченного
+аннотацией <span class="citation"
+data-cites="Configuration">@Configuration</span>.</li>
+<li>Проще всего это сделать в классе с методом main, потому что
+аннотация <span class="citation"
+data-cites="SpringBootApplication">@SpringBootApplication</span>
+автоматически добавляет аннотацию <span class="citation"
+data-cites="Configuration">@Configuration</span></li>
+<li>теперь Faker можно внедрять как обычную зависимость</li>
+</ul></li>
+</ul>
+<pre><code>@SpringBootTest
+@AutoConfigureMockMvc
+public class UsersControllerTest {
+
+    @Autowired
+    private Faker faker;
+
+    @BeforeEach
+    public void setUp() {
+      // Тут создаем нужные данные
+    }</code></pre>
+<h3 id="жизненный-цикл-бинов">Жизненный цикл бинов</h3>
+<ul>
+<li><span class="citation"
+data-cites="PostConstruct">@PostConstruct</span> и <span
+class="citation" data-cites="PreDestroy">@PreDestroy</span> внутри
+класса нужного бина</li>
+</ul>
+<pre><code>import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    private String message;
+
+    @PostConstruct
+    public void init() {
+        this.message = &quot;Bean is initialized!&quot;;
+        System.out.println(message);
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println(&quot;Cleaning up resources or performing final actions!&quot;);
+    }
+
+    // ... other methods ...
+}</code></pre>
+<ul>
+<li>когда это бывает нужно:
+<ul>
+<li>Чтение конфигурации и инициализация некоторых свойств</li>
+<li>Установка ресурсов, таких как соединение с базой данных</li>
+<li>Регистрация бинов во внешних системах</li>
+</ul></li>
+<li>область видимости бинов
+<ul>
+<li>она определяет, сколько объектов создается и как они
+переиспользуются разными частями приложения.</li>
+<li>Всего существует шесть областей видимости.</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.stereotype.Component;
+
+@Scope(&quot;prototype&quot;)
+@Component
+public class PrototypeBean {}</code></pre>
+<ul>
+<li>Область Request означает, что новый бин создается на каждый
+HTTP-запрос. Актуально только для веб-приложений:</li>
+</ul>
+<pre><code>import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+@RequestScope
+@Component
+public class RequestScopedBean {}</code></pre>
+<ul>
+<li>singleton(По умолчанию) Применяет одно определение компонента к
+одному экземпляру объекта для каждого контейнера Spring IoC.</li>
+<li>prototype - Распространяет определение одного компонента на любое
+количество экземпляров объектов.</li>
+<li>request - <span class="citation"
+data-cites="RequestScope">@RequestScope</span>
+<ul>
+<li>Распространяет определение одного компонента на жизненный цикл
+одного HTTP-запроса.</li>
+<li>То есть, каждый HTTP-запрос имеет свой собственный экземпляр
+компонента, созданный на основе определения одного компонента.</li>
+<li>Действительно только в контексте Spring с поддержкой веб-технологий
+ApplicationContext.</li>
+<li>компонент внедряется в другой компонент или запрашивается через
+getBean()вызов метода контейнера</li>
+</ul></li>
+<li>session - <span class="citation"
+data-cites="SessionScope">@SessionScope</span>
+<ul>
+<li>Распространяет определение одного компонента на весь жизненный цикл
+HTTP-объекта Session.</li>
+<li>Действительно только в контексте Spring с поддержкой веб-технологий
+ApplicationContext.</li>
+</ul></li>
+<li>application - <span class="citation"
+data-cites="ApplicationScope">@ApplicationScope</span>
+<ul>
+<li>Распространяет определение одного компонента на жизненный цикл
+ServletContext.</li>
+<li>Действительно только в контексте Spring с поддержкой веб-технологий
+ApplicationContext.</li>
+</ul></li>
+<li>websocket - Распространяет определение одного компонента на
+жизненный цикл WebSocket.
+<ul>
+<li>Действительно только в контексте Spring с поддержкой веб-технологий
+ApplicationContext.</li>
+</ul></li>
+</ul>
+<h2 id="интеграционные-тесты">Интеграционные тесты</h2>
+<ul>
+<li>Юнит-тесты для отдельных модулей</li>
+<li>Интеграционные тесты, проверяющие работоспособность всего
+приложения</li>
+<li>Интеграционное тестирование веб-приложений
+<ul>
+<li>подход с подменой веб-сервера, чтобы ускорить запуск и выполнение
+тестов</li>
+</ul></li>
+<li>Для работы с тестами нужно установить зависимости</li>
+</ul>
+<pre><code>testImplementation(platform(&quot;org.junit:junit-bom:5.10.0&quot;))
+testImplementation(&quot;org.junit.jupiter:junit-jupiter:5.10.0&quot;)
+testImplementation(&quot;org.springframework.boot:spring-boot-starter-test&quot;)
+// Понадобится когда мы начнем работать с аутентификацией
+testImplementation(&quot;org.springframework.security:spring-security-test&quot;)</code></pre>
+<ul>
+<li>Каждый тест — это запрос на конкретный адрес для тестирования
+конкретного маршрута.
+<ul>
+<li>Количество тестов для одного маршрута может быть разным, но
+конкретный тест — это всегда запрос-ответ.</li>
+</ul></li>
+<li>Тест на такой маршрут должен выполнить запрос на этот адрес.
+<ul>
+<li>Интеграционные тесты фактически повторяют структуру контроллеров,
+поэтому удобнее всего делать прямое соответствие между структурой
+контроллеров и тестами.</li>
+<li>Вот как будет выглядеть структура файлов в этом случае</li>
+</ul></li>
+</ul>
+<pre><code>src
+├── main
+│   ├── java
+│   │   └── io
+│   │       └── hexlet
+│   │           └── spring
+│   │               ├── Application.java
+│   │               ├── controller
+│   │               │   └── api
+│   │               │       └── UsersController.java
+│   │               ├── model
+│   │               │   └── User.java
+│   │               ├── repository
+│   │               │   └── UserRepository.java
+│   └── resources
+│       ├── application.yml
+└── test
+    └── java
+        └── io
+            └── hexlet
+                └── spring
+                    └── controller
+                        └── api
+                            └── UsersControllerTest.java</code></pre>
+<ul>
+<li>сам тест получается из названия контроллера с добавлением Test в
+название файла
+<ul>
+<li>Файл тестов — это классический JUnit-класс, в котором тестовые
+методы помечены аннотациями <span class="citation"
+data-cites="Test">@Test</span>.</li>
+</ul></li>
+</ul>
+<pre><code>
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UsersControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    // Технически имя тестового метода не важно
+    // Лучше использовать шаблон testНазваниеМетодаКонтроллера для основного сценария
+    @Test
+    public void testIndex() throws Exception {
+        mockMvc.perform(get(&quot;/api/users&quot;))
+                .andExpect(status().isOk());
+    }
+}</code></pre>
+<ul>
+<li>Метод get(“/api/users”) формирует объект запроса к указанной
+странице. Кроме запроса get, мы можем выполнить любой другой запрос</li>
+<li>Метод mockMvc.perform() выполняет сформированный запрос.
+<ul>
+<li>На самом деле здесь не происходит HTTP-вызова — запрос передается в
+приложение напрямую, поэтому тесты работают быстрее, чем с реальным
+веб-сервером</li>
+</ul></li>
+<li>Метод andExpect(status().isOk()) проверяем, что в ответ вернулся
+ответ 200.
+<ul>
+<li>По необходимости можно проверить любой другой статус</li>
+</ul></li>
+<li>для проверки JSON тела ответа используем
+<ul>
+<li>testImplementation(“net.javacrumbs.json-unit:json-unit-assertj:3.2.2”)</li>
+</ul></li>
+</ul>
+<pre><code>import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UsersControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    // Технически имя тестового метода не важно
+    // Лучше использовать шаблон testНазваниеМетодаКонтроллера для основного сценария
+    @Test
+    public void testIndex() throws Exception {
+        var result = mockMvc.perform(get(&quot;/api/users&quot;))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        // Тело это строка, в этом случае JSON
+        var body = result.getResponse().getContentAsString();
+        assertThatJson(body).isArray();
+        // Еще проверки
+    }
+}
+
+// еще примеры
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.json;
+
+// Compares two JSON documents (note lenient parsing of expected value)
+assertThatJson(&quot;{\&quot;a\&quot;:1, \&quot;b\&quot;:2}&quot;).isEqualTo(&quot;{b:2, a:1}&quot;);
+
+// Objects are automatically serialized before comparison
+assertThatJson(jsonObject).isEqualTo(&quot;{\n\&quot;test\&quot;: 1\n}&quot;);
+
+// AssertJ map assertions (numbers are converted to BigDecimals)
+assertThatJson(&quot;{\&quot;a\&quot;:1}&quot;).isObject().containsEntry(&quot;a&quot;, BigDecimal.valueOf(1));</code></pre>
+<ul>
+<li>запуск тестов
+<ul>
+<li>./gradlew test</li>
+</ul></li>
+</ul>
+<h3 id="тесты-взаимодействие-с-базой">Тесты Взаимодействие с базой</h3>
+<ul>
+<li>По умолчанию тесты используют ту базу данных, которая указана в
+конфигурации</li>
+<li>в большинстве фреймворков каждый тест выполняется в отдельной
+транзакции, которая откатывается в конце теста</li>
+<li>библиотека — Instancio - автоматически создавать объекты на базе
+сущностей и сохранять их в базу.</li>
+<li>установить зависимости
+<ul>
+<li>implementation(“net.datafaker:datafaker:2.0.1”)</li>
+<li>implementation(“org.instancio:instancio-junit:3.3.0”)</li>
+</ul></li>
+</ul>
+<pre><code>
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.HashMap;
+
+import org.instancio.Instancio;
+import org.instancio.Select;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.hexlet.blog.model.User;
+import io.hexlet.blog.repository.UserRepository;
+import net.datafaker.Faker;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UsersControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private Faker faker;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ObjectMapper om;
+
+    @Test
+    public void testUpdate() throws Exception {
+        // создаем пользователя без идентификатора он не нужен (типа БД сама)
+        // email формируем из Faker
+        var user = Instancio.of(User.class)
+                .ignore(Select.field(User::getId))
+                .supply(Select.field(User::getEmail), () -&gt; faker.internet().emailAddress())
+                .create();
+        userRepository.save(user);
+
+        // подготовка запроса
+        // объект с данными
+        var data = new HashMap&lt;&gt;();
+        data.put(&quot;firstName&quot;, &quot;Mike&quot;);
+
+        // запрос 
+        var request = put(&quot;/api/users/&quot; + user.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                // ObjectMapper конвертирует Map в JSON
+                .content(om.writeValueAsString(data));
+
+        mockMvc.perform(request)
+                 .andExpect(status().isOk());
+
+        // проверка изменения пользователя 
+        user = userRepository.findById(user.getId()).get();
+        assertThat(user.getFirstName()).isEqualTo((&quot;Mike&quot;));
+    }
+}</code></pre>
+<p>-&gt; Интеграционные тесты отображают как работает приложение, и не
+важно как оно написано внутри -&gt; Интеграционные тесты очень устойчивы
+к изменениям в коде, они меняются в основном из-за изменений API.</p>
+<h2 id="шаблон-проектирования-dto">Шаблон проектирования DTO</h2>
+<ul>
+<li>spring boot - автоматически преобразовывает объекты в JSON при
+возврате из метода контроллера
+<ul>
+<li>минусы этого подхода
+<ul>
+<li>безопасность - не все свойства нужно показывать наружу</li>
+<li>представления - для разных версий нужно возвращать разные наборы
+свойств</li>
+<li>схема данных - API не должен меняться из-за изменений базы
+данных</li>
+<li>связи</li>
+</ul></li>
+</ul></li>
+<li>аннотация <span class="citation"
+data-cites="JsonIgnore">@JsonIgnore</span> в Jackson - поле сущности
+будет проигнорировано в конвертации в JSON
+<ul>
+<li>также есть проблемы
+<ul>
+<li>модель узнает как она используется в слое представления</li>
+<li><span class="citation" data-cites="JsonIgnore">@JsonIgnore</span> -
+работает только тогда, когда существует единственное представление</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>// Остальные импорты
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class User {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
+    @Email
+    private String email;
+
+    private String firstName;
+
+    private String lastName;
+
+    @NotBlank
+    @JsonIgnore
+    private String password;
+}</code></pre>
+<ul>
+<li>для передачи нужных свойств используется шаблон проектирования DTO
+<ul>
+<li>Data Transfer Object (DTO) - набор полей под каждую конкретную
+ситуацию</li>
+<li>DTO — это не часть Spring Boot, поэтому именование и расположение
+этих классов лежит полностью на программистах.
+<ul>
+<li>как пример, храним эти классы в директории src/main/java/dto.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>// src/main/java/io/hexlet/spring/dto/UserDTO.java
+package io.hexlet.spring.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class UserDTO {
+    private Long id;
+    private String userName;
+    private String firstName;
+    private String lastName;
+}
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class UsersController {
+    @Autowired
+    private UserRepository repository;
+
+    @GetMapping(&quot;/users/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    // Пользователь автоматически преобразуется в JSON
+    public UserDTO show(@PathVariable Long id) {
+        var user = repository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found&quot;));
+
+        var dto = new UserDTO();
+        dto.setId(user.getId());
+        dto.setFirstName(user.getFirstName());
+        dto.setLastName(user.getLastName());
+
+        return dto;
+    }
+    
+    @GetMapping(&quot;/users&quot;)
+    public List&lt;UserDTO&gt; index() {
+        var users = repository.findAll();
+        var result = users.stream()
+                .map(this::toDTO)
+                .toList();
+        return result;
+    }
+    
+    // Чтобы сделать работу удобнее
+    // И избежать дублирования
+    private UserDTO toDTO(User user) {
+        var dto = new UserDTO();
+        dto.setId(user.getId());
+        dto.setFirstName(user.getFirstName());
+        dto.setLastName(user.getLastName());
+        return dto;
+    }
+}</code></pre>
+<ul>
+<li>Если набор полей будет разным, то на каждый набор понадобится свой
+собственный класс:
+<ul>
+<li>UserDTO, CreateUserDTO, UserListDTO, AdminUserListDTO и так
+далее.</li>
+</ul></li>
+</ul>
+<h2 id="преобразование-dto-в-сущность">Преобразование DTO в
+сущность</h2>
+<ul>
+<li>плохая идея сохранять RequestBody сразу как репозиторий как Entity
+<ul>
+<li>то есть автоматическое представление из RequestBody в Entity</li>
+</ul></li>
+<li>сущность DTO позволяет настроить схему API и хранить Entity
+независимо
+<ul>
+<li>Преобразование из сущности в DTO и наоборот обычно отличаются
+набором свойств</li>
+</ul></li>
+</ul>
+<pre><code>// есть класс Entity
+@Entity
+@Getter
+@Setter
+@Table(name = &quot;posts&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class Post {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
+    private String slug;
+
+    private String name;
+
+    @Column(columnDefinition = &quot;TEXT&quot;)
+    private String body;
+
+    @CreatedDate
+    private LocalDate createdAt;
+}
+
+// DTO создание
+@Setter
+@Getter
+public class PostCreateDTO {
+    private String slug;
+    private String name;
+    private String body;
+}
+
+// DTO для ответа
+@Setter
+@Getter
+public class PostDTO {
+    private String id;
+    private String slug;
+    private String name;
+    private String body;
+    private LocalDate createdAt;
+}
+
+// Реализация
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class PostsController {
+    @Autowired
+    private PostRepository repository;
+
+    @GetMapping(&quot;/posts/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public PostDTO show(@PathVariable Long id) {
+        var post = repository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found: &quot; + id));
+        var postDTO = toDTO(post); // Только в DTO
+        return postDTO;
+    }
+
+    @PostMapping(&quot;/posts&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public PostDTO create(@RequestBody PostCreateDTO postData) {
+        var post = toEntity(postData); // Сначала в Entity
+        repository.save(post);
+        var postDTO = toDTO(post); // Потом в DTO
+        return postDTO;
+    }
+
+    private PostDTO toDTO(Post post) {
+        var dto = new PostDTO();
+        dto.setId(post.getId());
+        dto.setSlug(post.getSlug());
+        dto.setName(post.getName());
+        dto.setBody(post.getBody());
+        dto.setCreatedAt(post.getCreatedAt());
+        return dto;
+    }
+
+    private Post toEntity(PostCreateDTO postDTO) {
+        var post = new Post();
+        post.setSlug(postDTO.getSlug());
+        post.setName(postDTO.getName());
+        post.setBody(postDTO.getBody());
+        return post;
+    }
+}</code></pre>
+<h2 id="преобразование-dto-в-сущность-для-обновления">Преобразование DTO
+в сущность для обновления</h2>
+<ul>
+<li>Свой DTO под каждый тип операции — это самое простое и устойчивое к
+ошибкам решение
+<ul>
+<li>хотя оно и приводит к большему объему кода.</li>
+</ul></li>
+<li>DTO для обновления</li>
+</ul>
+<pre><code>@Setter
+@Getter
+public class PostUpdateDTO {
+    private String name;
+    private String body;
+}
+
+// правильная реализация обновления
+var post = postRepository.findById(id);
+post.setName(dto.getName());
+// остальной код
+postRepository.save(post); // UPDATE
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class PostsController {
+    @Autowired
+    private PostRepository repository;
+
+    @PutMapping(&quot;/posts/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public PostDTO update(@RequestBody @Valid PostUpdateDTO postData, @PathVariable Long id) {
+        var post = repository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found&quot;));
+        toEntity(postData, post);
+        repository.save(post);
+        var postDTO = toDTO(post);
+        return postDTO;
+    }
+
+    private Post toEntity(PostUpdateDTO postDTO, Post post) {
+        post.setName(postDTO.getName());
+        post.setBody(postDTO.getBody());
+        return post;
+    }
+
+    private PostDTO toDTO(Post post) {
+        var dto = new PostDTO();
+        dto.setId(post.getId());
+        dto.setSlug(post.getSlug());
+        dto.setName(post.getName());
+        dto.setBody(post.getBody());
+        dto.setCreatedAt(post.getCreatedAt());
+        return dto;
+    }
+}</code></pre>
+<h2
+id="автоматическая-конвертация-сущностей-в-dto-и-обратно">Автоматическая
+конвертация сущностей в DTO и обратно</h2>
+<ul>
+<li>Преобразование сущностей в DTO и обратно — это довольно утомительная
+операция с большим объемом однообразного кода</li>
+<li>библиотека MapStruct - https://mapstruct.org/
+<ul>
+<li>установка
+<ul>
+<li>implementation(“org.mapstruct:mapstruct:1.5.5.Final”)</li>
+<li>annotationProcessor(“org.mapstruct:mapstruct-processor:1.5.5.Final”)</li>
+</ul></li>
+<li>использование
+<ul>
+<li>С его помощью создаются специальные мапперы под каждую сущность</li>
+<li>Внутри них определяются правила конвертирования в DTO или из DTO в
+зависимости от потребностей</li>
+<li>Дальше эти мапперы используются в нужных местах, сводя
+преобразования к одной строчке.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>// есть сущность 
+@Entity
+@Getter
+@Setter
+@Table(name = &quot;posts&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class Post {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
+    private String slug;
+
+    private String name;
+
+    @Column(columnDefinition = &quot;TEXT&quot;)
+    private String body;
+
+    @CreatedDate
+    private LocalDate createdAt;
+}
+
+// DTO 
+@Setter
+@Getter
+public class PostCreateDTO {
+    private String slug;
+    private String name;
+    private String body;
+}
+
+@Setter
+@Getter
+public class PostUpdateDTO {
+    private String name;
+    private String body;
+}
+
+// отображения 
+@Setter
+@Getter
+public class PostDTO {
+    private Long id;
+    private String slug;
+    private String name;
+    private String body;
+    private LocalDate createdAt;
+}
+
+// контроллер
+import io.hexlet.spring.mapper.PostMapper;
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class PostsController {
+    @Autowired
+    private PostRepository repository;
+
+    @Autowired
+    private PostMapper postMapper;
+
+    @PostMapping(&quot;/posts&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public PostDTO create(@RequestBody PostCreateDTO postData) {
+        // Преобразование в сущность
+        var post = postMapper.map(postData);
+        repository.save(post);
+        // Преобразование в DTO
+        var postDTO = postMapper.map(post);
+        return postDTO;
+    }
+
+    @PutMapping(&quot;/posts/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public PostDTO update(@RequestBody @Valid PostUpdateDTO postData, @PathVariable Long id) {
+        var post = repository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found&quot;));
+        postMapper.update(postData, post);
+        repository.save(post);
+        var postDTO = postMapper.map(post);
+        return postDTO;
+    }
+
+    @GetMapping(&quot;/posts/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public PostDTO show(@PathVariable Long id) {
+        var post = repository.findById(id)
+                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found: &quot; + id));
+        // Преобразование в DTO
+        var postDTO = postMapper.map(post);
+        return postDTO;
+    }
+}</code></pre>
+<ul>
+<li>Перегруженный метод map(), работающий сразу с тремя классами:
+<ul>
+<li>PostCreateDTO</li>
+<li>PostDTO</li>
+<li>Post</li>
+</ul></li>
+</ul>
+<pre><code>// сам маппер
+package io.hexlet.spring.mapper;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.ReportingPolicy;
+
+import io.hexlet.spring.dto.PostCreateDTO;
+import io.hexlet.spring.dto.PostUpdateDTO;
+import io.hexlet.spring.dto.PostDTO;
+import io.hexlet.spring.model.Post;
+
+@Mapper(
+    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+    componentModel = MappingConstants.ComponentModel.SPRING,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE
+)
+public abstract class PostMapper {
+    public abstract Post map(PostCreateDTO dto);
+    public abstract PostDTO map(Post model);
+    public abstract void update(PostUpdateDTO dto, @MappingTarget Post model);
+}</code></pre>
+<ul>
+<li>Маппер — это абстрактный класс с абстрактными методами для
+конвертации одних объектов в другие.
+<ul>
+<li>Класс должен быть помечен аннотацией <span class="citation"
+data-cites="Mapper">@Mapper</span> с минимально указанной опцией
+componentModel = MappingConstants.ComponentModel.SPRING.</li>
+<li>Во время компиляции происходит генерация конкретных мапперов
+<ul>
+<li>Посмотреть исходник этих классов можно в директории
+build/generated/sources/annotationProcessor/java/main/io/spring/mapper</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>// пример исходника
+/ PostMapperImpl.java
+package io.hexlet.blog.mapper;
+
+import io.hexlet.blog.dto.PostCreateDTO;
+import io.hexlet.blog.dto.PostDTO;
+import io.hexlet.blog.model.Post;
+import io.hexlet.blog.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+// Автоматически помечается как компонент, что дает возможность внедрять как зависимость
+@Component
+public class PostMapperImpl extends PostMapper {
+   @Override
+   public Post map(PostCreateDTO dto) {
+      if (dto == null) {
+         return null;
+      } else {
+         Post post = new Post();
+         post.setSlug(dto.getSlug());
+         post.setName(dto.getName());
+         post.setBody(dto.getBody());
+         return post;
+      }
+   }
+
+   @Override
+   public PostDTO map(Post model) {
+      if (model == null) {
+         return null;
+      } else {
+         PostDTO postDTO = new PostDTO();
+         postDTO.setId(model.getId());
+         postDTO.setSlug(model.getSlug());
+         postDTO.setName(model.getName());
+         postDTO.setBody(model.getBody());
+         postDTO.setCreatedAt(model.getCreatedAt());
+         return postDTO;
+      }
+   }
+
+    @Override
+    public void update(PostUpdateDTO dto, Post model) {
+        if ( dto == null ) {
+            return;
+        }
+        model.setName(dto.getName());
+        model.setBody(dto.getBody());
+    }
+}</code></pre>
+<ul>
+<li>MapStruct самостоятельно написал тот код, который мы до этого писали
+руками.
+<ul>
+<li>MapStruct сравнивает методы обоих классов и автоматически распознает
+те, что совпадают</li>
+<li>MapStruct автоматически пытается преобразовать типы, если они не
+совпадают.</li>
+<li>В большинстве случаев это работает автоматически, но там где нет,
+<ul>
+<li>всегда есть возможность дописать правила конвертации и
+преобразования типов</li>
+</ul></li>
+</ul></li>
+<li>Для примера представим, что поле name переименовали в title.
+<ul>
+<li>Если нам нужно сохранить внешнее API без изменений, то мы можем
+определить правила преобразования в маппере:</li>
+</ul></li>
+</ul>
+<pre><code>@Mapper(
+    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+    componentModel = MappingConstants.ComponentModel.SPRING,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE
+)
+public abstract class PostMapper {
+    @Mapping(target = &quot;title&quot;, source = &quot;name&quot;)
+    public abstract Post map(PostCreateDTO dto);
+
+    @Mapping(target = &quot;title&quot;, source = &quot;name&quot;)
+    public abstract void update(PostUpdateDTO dto, @MappingTarget Post model);
+
+    @Mapping(target = &quot;name&quot;, source = &quot;title&quot;)
+    public abstract PostDTO map(Post model);
+}</code></pre>
+<ul>
+<li>В аннотации source указывает на объект, который передается как
+параметр, target — это объект, возвращаемый из метода.</li>
+</ul>
+<h2 id="валидация-сущностей">Валидация сущностей</h2>
+<ul>
+<li>Валидация реализуется набором аннотаций Jakarta Bean
+Validation,</li>
+<li>которые обычно применяются к сущностям и DTO</li>
+<li>пример валидация для модели</li>
+</ul>
+<pre><code>import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Getter
+@Setter
+@Table(name = &quot;users&quot;)
+public class User {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
+    @Email
+    private String email;
+
+    @NotBlank
+    private String firstName;
+
+    @NotNull
+    @Size(min = 8)
+    private String password;
+}
+
+// использование в контроллере
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class UsersController {
+    @Autowired
+    private UserRepository repository;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @PostMapping(&quot;/users&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    // Валидация происходит до вызова метода
+    public UserDTO create(@Valid @RequestBody User user) {
+        // Логика создания
+    }
+}</code></pre>
+<ul>
+<li>аннотация <span class="citation" data-cites="Valid">@Valid</span>
+идет в паре с <span class="citation"
+data-cites="RequestBody">@RequestBody</span>.
+<ul>
+<li>Сама валидация вызывается уже на получившемся объекте, в нашем
+примере — это user.</li>
+<li>При успешной валидации вызывается метод контроллера, при неуспешной
+— возникает исключение MethodArgumentNotValidException.</li>
+<li>Spring Boot обрабатывает это исключение автоматически и возвращает
+ошибку 400 Bad Request:</li>
+</ul></li>
+<li>в реальном коде там почти наверняка будет использоваться DTO вместо
+RequestBody User
+<ul>
+<li>придется дополнительно повесить валидацию на DTO</li>
+</ul></li>
+</ul>
+<pre><code>import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class UserCreateDTO {
+    @Email
+    private String email;
+
+    @NotBlank
+    private String firstName;
+
+    @NotNull
+    @Size(min = 8)
+    private String password;
+}</code></pre>
+<h2 id="частичное-обновление">Частичное обновление</h2>
+<ul>
+<li>не все поля переданы в DTO обновления, тогда маппер сотрет не
+переданные поля</li>
+</ul>
+<pre><code>@PutMapping(&quot;/posts/{id}&quot;)
+@ResponseStatus(HttpStatus.OK)
+public PostDTO update(@RequestBody @Valid PostUpdateDTO postData, @PathVariable Long id) {
+    var post = repository.findById(id)
+            .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Not Found&quot;));
+    postMapper.update(postData, post);
+    repository.save(post);
+    var postDTO = postMapper.map(post);
+    return postDTO;
+}
+
+public class PostUpdateDTO {
+    private String name;
+    private String body;
+}
+
+public abstract class PostMapper {
+    public abstract PostDTO map(Post model);
+    public abstract void update(PostUpdateDTO dto, @MappingTarget Post model);
+}
+
+// а передали только name
+{
+  &quot;name&quot;: &quot;new name&quot;
+}
+
+// при таком body перезапишется на пустое
+    </code></pre>
+<ul>
+<li>Эта ситуация возникает из-за того, что у свойств в объектах есть
+только два возможных значения:
+<ul>
+<li>Либо null</li>
+<li>Либо какое-то конкретное значение</li>
+</ul></li>
+<li>Если в DTO оказался null, что это значит? Возможны два варианта:
+<ul>
+<li>Либо null действительно пришел в JSON снаружи</li>
+<li>Либо свойство не было установлено вообще</li>
+</ul></li>
+<li>В таких условиях мы не можем с уверенностью сказать, какой вариант
+правильный.
+<ul>
+<li>Решить эту проблему можно с помощью модуля jackson-databind-nullable
+в связке с MapStruct.</li>
+</ul></li>
+<li>принцип работы jackson-databind-nullable
+<ul>
+<li>оборачиваем в класс JsonNullable какое-то свойство, которое может
+отсутствовать</li>
+<li>Дальше применяется следующая логика:
+<ul>
+<li>Если в свойстве находится явный null, значение удалено явно</li>
+<li>Если в свойстве находится JsonNullable.undefined(), значение не
+передано — его нужно игнорировать</li>
+<li>Если в свойстве находится реальное значение, обернутое в
+JsonNullable, то нужно его использовать</li>
+</ul></li>
+</ul></li>
+<li>библиотеку нужно установить:</li>
+<li>implementation(“org.openapitools:jackson-databind-nullable:0.2.6”)</li>
+<li>Сам модуль подключается к Jackson с помощью конфигурационного
+класса:</li>
+</ul>
+<pre><code>// src/main/java/io/hexlet/spring/config/JacksonConfig
+package io.hexlet.spring.config;
+
+import org.openapitools.jackson.nullable.JsonNullableModule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@Configuration
+public class JacksonConfig {
+    @Bean
+    Jackson2ObjectMapperBuilder objectMapperBuilder() {
+        var builder = new Jackson2ObjectMapperBuilder();
+        builder.serializationInclusion(JsonInclude.Include.NON_NULL)
+                .modulesToInstall(new JsonNullableModule());
+        return builder;
+    }
+}</code></pre>
+<ul>
+<li>JacksonNullable подключается к опциональным свойствам DTO,
+<ul>
+<li>то есть эти свойства могут быть пропущены при формировании JSON с
+клиентской стороны</li>
+</ul></li>
+</ul>
+<pre><code>import org.openapitools.jackson.nullable.JsonNullable;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class PostUpdateDTO {
+    @NotNull
+    private JsonNullable&lt;String&gt; name;
+
+    @NotNull
+    private JsonNullable&lt;String&gt; body;
+}</code></pre>
+<ul>
+<li>По умолчанию MapStruct ничего не знает о JsonNullable.
+<ul>
+<li>Чтобы добавить нужную нам условную логику, проверяющую наличие
+реального значения,</li>
+<li>надо добавить специальный маппер:</li>
+</ul></li>
+</ul>
+<pre><code>// src/main/java/io/hexlet/spring/mapper/JsonNullableMapper.java
+package io.hexlet.spring.mapper;
+
+import org.mapstruct.Condition;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+@Mapper(
+    componentModel = MappingConstants.ComponentModel.SPRING
+)
+public abstract class JsonNullableMapper {
+
+    public &lt;T&gt; JsonNullable&lt;T&gt; wrap(T entity) {
+        return JsonNullable.of(entity);
+    }
+
+    public &lt;T&gt; T unwrap(JsonNullable&lt;T&gt; jsonNullable) {
+        return jsonNullable == null ? null : jsonNullable.orElse(null);
+    }
+
+    @Condition
+    public &lt;T&gt; boolean isPresent(JsonNullable&lt;T&gt; nullable) {
+        return nullable != null &amp;&amp; nullable.isPresent();
+    }
+}</code></pre>
+<ul>
+<li>Это универсальный маппер, который можно подключить к любым другим
+мапперам
+<ul>
+<li>пример в своем маппере</li>
+</ul></li>
+</ul>
+<pre><code>package io.hexlet.spring.mapper;
+
+import org.mapstruct.InheritConfiguration;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.ReportingPolicy;
+
+import io.hexlet.blog.dto.PostCreateDTO;
+import io.hexlet.blog.dto.PostDTO;
+import io.hexlet.blog.dto.PostUpdateDTO;
+import io.hexlet.blog.model.Post;
+
+@Mapper(
+    // Подключение JsonNullableMapper
+    uses = { JsonNullableMapper.class },
+    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+    componentModel = MappingConstants.ComponentModel.SPRING,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE
+)
+public abstract class PostMapper {
+    // Остальные методы
+    public abstract void update(PostUpdateDTO dto, @MappingTarget Post model);
+}</code></pre>
+<h2 id="связь-один-ко-многим">Связь один ко многим</h2>
+<ul>
+<li>Один ко многим» (OneToMany или O2M).
+<ul>
+<li>Именно так называют ситуации, когда у одной сущности может быть
+множество зависимых.</li>
+</ul></li>
+<li>На уровне базы данных связь «Один ко многим» проявляется как внешний
+ключ.
+<ul>
+<li>В случае постов, таким внешним ключом будет author_id, указывающий
+запись в таблице пользователей:</li>
+</ul></li>
+</ul>
+<pre><code>import jakarta.persistence.ManyToOne;
+
+//
+CREATE TABLE POSTS (
+  id bigint generated by default as identity,
+  author_id bigint not null,
+  slug varchar(255) not null unique,
+  name varchar(255),
+  body TEXT,
+  updated_at timestamp(6),
+  created_at timestamp(6),
+  primary key (id)
+)
+
+-- Добавление ключа
+ALTER TABLE IF EXISTS POSTS
+  ADD CONSTRAINT FK6xvn0811tkyo3nfjk2xvqx6ns foreign key (author_id) references users</code></pre>
+<ul>
+<li>Spring Boot создает и выполняет эти запросы автоматически, если
+стоит соответствующая опция:</li>
+</ul>
+<pre><code># application.yml
+
+spring:
+jpa:
+generate-ddl: true</code></pre>
+<ul>
+<li>Связь «Один ко многим» в Spring Data JPA существует в двух
+вариантах:
+<ul>
+<li>«Один ко многим» (OneToMany) — устанавливается со стороны сущности,
+которая представлена в единственном числе. В случае постов и авторов со
+стороны авторов.</li>
+<li>«Многие к одному» (ManyToOne) — устанавливается со стороны сущности,
+которая представлена во множественном числе. В случае постов и авторов
+со стороны постов.</li>
+</ul></li>
+<li>Для создания связи OneToMany нужно как минимум сделать связь
+ManyToOne для сущности Post.
+<ul>
+<li>В таком случае мы сможем обращаться к автору поста.</li>
+<li>Если мы захотим работать с постами одного автора, для этого придется
+добавить связь OneToMany в сущность User.</li>
+<li>С практической точки зрения есть смысл сразу устанавливать связь с
+обеих сторон.</li>
+</ul></li>
+</ul>
+<h4 id="связь-многие-к-одному">Связь «Многие к одному»</h4>
+<ul>
+<li>аннотация <span class="citation"
+data-cites="ManyToOne">@ManyToOne</span>. Ее наличие создает внешний
+ключ в базе.
+<ul>
+<li>При этом сама колонка будет называться по имени поля в классе с
+добавлением _id в конце.</li>
+<li>В нашем случае имя поля — это author, поэтому поле в базе будет
+называться author_id</li>
+</ul></li>
+</ul>
+<pre><code>import static jakarta.persistence.GenerationType.IDENTITY;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@Table(name = &quot;posts&quot;)
+public class Post {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    // Связь ManyToOne
+    @ManyToOne
+    @NotNull
+    private User author;
+
+    @Column(unique = true)
+    @NotNull
+    private String slug;
+
+    @NotBlank
+    private String name;
+
+    @NotBlank
+    @Column(columnDefinition = &quot;TEXT&quot;)
+    private String body;
+
+    @LastModifiedDate
+    private LocalDate updatedAt;
+
+    @CreatedDate
+    private LocalDate createdAt;
+}</code></pre>
+<ul>
+<li>Зависимость устанавливается через сеттер и извлекается через
+геттер:</li>
+<li>post.setAuthor(user);</li>
+<li>postRepository.save(post);</li>
+<li>post.getAuthor().getName();</li>
+<li>Но есть и отличия. По умолчанию загрузка связанной сущности
+происходит в ленивом режиме.
+<ul>
+<li>Это значит, что при выборке поста из базы автора внутри не
+будет.</li>
+<li>Такая стратегия помогает экономить ресурсы.</li>
+<li>Без нее при большом количестве связей создавалось бы множество
+ненужных запросов.</li>
+<li>Реальный запрос в базу происходит тогда, когда мы обращаемся к
+автору</li>
+</ul></li>
+</ul>
+<pre><code>// Автор не извлекается
+var post = postRepository.findById(id);
+// Если автор есть, то на первое обращение выполняется запрос в базу
+post.getAuthor();
+// Здесь запроса уже нет, потому что автор извлечен
+post.getAuthor()</code></pre>
+<h4 id="связь-один-ко-многим-onetomany">Связь «Один ко многим»
+(OneToMany)</h4>
+<ul>
+<li>Обратная связь создается с помощью аннотации <span class="citation"
+data-cites="OneToMany">@OneToMany</span> с параметром mappedBy,
+<ul>
+<li>значением которого должно быть имя поля в зависимой сущности.</li>
+<li>В нашей ситуации примере — это author</li>
+</ul></li>
+</ul>
+<pre><code>// Остальные импорты
+import jakarta.persistence.OneToMany;
+
+@Entity
+// Остальные аннотации
+public class User {
+
+    // Остальные поля
+
+    @OneToMany(mappedBy = &quot;author&quot;)
+    // По умолчанию пустой список помогает не проверять на null
+    // Выборка данных выполнится при обращении к getPosts()
+    private List&lt;Post&gt; posts = new ArrayList&lt;&gt;();
+}</code></pre>
+<ul>
+<li>С одной стороны, появление двунаправленной связи упрощает выборки,
+<ul>
+<li>а с другой — создает дополнительную сложность в синхронизации данных
+в базе и в коде.</li>
+<li>Представьте, что у нас есть такой код:</li>
+</ul></li>
+</ul>
+<pre><code>var post = new Post(/* параметры */);
+post.setAuthor(user);
+postRepository.save(post);
+
+// Дальше по коду мы хотим работать с постами пользователя
+user.getPosts();</code></pre>
+<ul>
+<li>Вновь созданный пост не появится внутри списка постов пользователей.
+<ul>
+<li>Нам придется добавить его туда вручную:</li>
+</ul></li>
+</ul>
+<pre><code>var post = new Post(/* параметры */);
+post.setAuthor(user);
+postRepository.save(post);
+user.getPosts().add(post);
+
+// Теперь сработает
+user.getPosts();</code></pre>
+<ul>
+<li>такой подход плох, можно забыть явно добавить в ручную!!!
+<ul>
+<li>лучше сохранять в рамках пользователя</li>
+<li>cascade = CascadeType.ALL отвечает за каскадное применение всех
+операций к зависимым сущностям.
+<ul>
+<li>Без него сохранение пользователя не приведет к сохранению
+поста.</li>
+</ul></li>
+<li>orphanRemoval = true отвечает за удаление зависимых сущностей.
+<ul>
+<li>Если мы удалим пост из списка постов пользователя, он удалится из
+базы во время сохранения пользователя.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>import jakarta.persistence.CascadeType;
+
+@Entity
+// Остальные аннотации
+public class User {
+
+    // Остальные поля
+
+    @OneToMany(mappedBy = &quot;author&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List&lt;Post&gt; posts = new ArrayList&lt;&gt;();
+
+    public void addPost(Post post) {
+        posts.add(post);
+        post.setAuthor(this);
+    }
+
+    public void removePost(Post post) {
+        posts.remove(post);
+        post.setAuthor(null);
+    }
+}
+
+user.addPost(post);
+// Сохраняем post с добавленным author
+userRepository.save(user)</code></pre>
+<ul>
+<li>итого
+<ul>
+<li>Сохранение через зависимую сущность (Post) стоит использовать
+всегда,
+<ul>
+<li>когда есть такая возможность — в большинстве случаев работа с
+сущностью напрямую проще и эффективнее</li>
+</ul></li>
+<li>Сохранение через базовую сущность (User) не такое универсальное.
+<ul>
+<li>!! Советуем использовать его только тогда, когда мы знаем,
+<ul>
+<li>что после сохранения зависимой сущности есть код, работающий с
+базовой сущностью.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="crud-на-spring-boot">CRUD на Spring Boot</h2>
+<ul>
+<li>CRUD (Create/Read/Update/Delete) — это набор типовых операций,
+который обычно выполняется над сущностью</li>
+</ul>
+<h2 id="поиск">Поиск</h2>
+<ul>
+<li>если данных много даже после фильтрации, то они отдаются
+постранично. Реализовать необходимую логику можно с помощью:
+<ul>
+<li>Автоматической генерации методов в JPA Repository в простых
+случаях</li>
+<li>JPA Specifications в более сложных случаях</li>
+<li>QueryDSL или других сторонних библиотек</li>
+</ul></li>
+</ul>
+<h3 id="jpa-specifications">JPA Specifications</h3>
+<ul>
+<li>Для реализации этого механизма нужно выполнить следующие шаги:
+<ul>
+<li>Добавить интерфейс JpaSpecificationExecutor в репозиторий</li>
+<li>Создать DTO для параметров запроса, который будет использоваться для
+фильтрации</li>
+<li>Описать спецификацию для конкретной сущности</li>
+<li>Внедрить использование спецификации в контроллере</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@EntityListeners(AuditingEntityListener.class)
+@ToString(includeFieldNames = true, onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = &quot;posts&quot;)
+public class Post {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @ToString.Include
+    @EqualsAndHashCode.Include
+    private Long id;
+
+    @ManyToOne(optional = false)
+    private User author;
+
+    @Column(unique = true)
+    @ToString.Include
+    @NotNull
+    private String slug;
+
+    @NotBlank
+    @ToString.Include
+    private String name;
+
+    @NotBlank
+    @ToString.Include
+    @Column(columnDefinition = &quot;TEXT&quot;)
+    private String body;
+
+    @LastModifiedDate
+    private LocalDate updatedAt;
+
+    @CreatedDate
+    private LocalDate createdAt;
+}</code></pre>
+<ul>
+<li>Для работы динамического фильтра на базе спецификации нужно добавить
+интерфейс JpaSpecificationExecutor.
+<ul>
+<li>В нем описаны методы для работы с данными на основе
+спецификации:</li>
+</ul></li>
+</ul>
+<pre><code>@Repository
+public interface PostRepository extends JpaRepository&lt;Post, Long&gt;, JpaSpecificationExecutor&lt;Post&gt; {
+
+    // Объявлять метод не нужно
+    // Он уже есть в JpaSpecificationExecutor
+    // Page&lt;Post&gt; findAll(Specification&lt;Post&gt; spec, Pageable pageable);
+}</code></pre>
+<ul>
+<li>Метод findAll интерфейса JpaSpecificationExecutor возвращает
+страницу с постами на основе переданной спецификации.
+<ul>
+<li>Вторым параметром метод принимает Pageable, который определяет
+смещение и количество данных в части LIMIT.</li>
+<li>Это хорошая практика, потому что возвращение всех данных почти
+всегда приводит к проблемам с производительностью
+<ul>
+<li>var posts = repository.findAll(/* спецификация <em>/,
+PageRequest.of(/</em> текущая страница */, 10));</li>
+</ul></li>
+</ul></li>
+<li>Создание DTO
+<ul>
+<li>Обычно фильтры состоят больше, чем из одного параметра.
+<ul>
+<li>В этом случае неудобно получать каждый параметр по отдельности.</li>
+</ul></li>
+<li>проще создать для них DTO, который будет создан при вызове метода
+контроллера.
+<ul>
+<li>Spring Boot автоматически сопоставляет параметры запроса со
+свойствами объекта и заполняет их, если они переданы:</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>/ Имя DTO содержит часть Params
+// Так становится понятно, для чего нужен этот DTO
+Page&lt;PostDTO&gt; index(PostParamsDTO params) {</code></pre>
+<ul>
+<li>Сам DTO включает те параметры, по которым мы хотим фильтровать. В
+нашем случае это будет:
+<ul>
+<li>Параметр authorId выбирает посты по автору</li>
+<li>Параметр nameCont выбирает посты по вхождению в название поста
+(здесь Cont обозначает contain — «содержать»)</li>
+<li>Параметр createdAtGt выбирает посты, появившиеся позже указанной
+даты (здесь gt обозначает greater than — «более чем»)</li>
+<li>Параметр createdAtLt он выбирает посты, появившиеся раньше указанной
+даты (здесь lt обозначает lesser than — «менее чем»)</li>
+</ul></li>
+<li>Добавлять суффиксы Cont, Gt и Lt в название полей не обязательно.
+<ul>
+<li>С другой стороны, это очень удобно, потому что позволяет
+использовать одно и то же поле несколько раз так,
+<ul>
+<li>что сразу понятно, для чего нужен этот параметр и как он примерно
+работает.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>@Setter
+@Getter
+public class PostParamsDTO {
+    private String nameCont;
+    private Long authorId;
+    private LocalDate createdAtGt;
+    private LocalDate createdAtLt;
+}</code></pre>
+<ul>
+<li>Создание спецификации
+<ul>
+<li>Спецификация работает как билдер, которому передаются различные
+условия фильтрации</li>
+<li>На базе этой спецификации Spring Boot JPA выполняет генерацию
+SQL</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
+
+import io.hexlet.spring.dto.PostParamsDTO;
+import io.hexlet.spring.model.Post;
+
+@Component // Для возможности автоматической инъекции
+public class PostSpecification {
+    // Генерация спецификации на основе параметров внутри DTO
+    // Для удобства каждый фильтр вынесен в свой метод
+    public Specification&lt;Post&gt; build(PostParamsDTO params) {
+        return withAuthorId(params.getAuthorId())
+                .and(withCreatedAtGt(params.getCreatedAtGt()));
+    }
+
+    private Specification&lt;Post&gt; withAuthorId(Long authorId) {
+        return (root, query, cb) -&gt; authorId == null ? cb.conjunction() : cb.equal(root.get(&quot;author&quot;).get(&quot;id&quot;), authorId);
+    }
+
+    private Specification&lt;Post&gt; withCreatedAtGt(LocalDate date) {
+        return (root, query, cb) -&gt; date == null ? cb.conjunction() : cb.greaterThan(root.get(&quot;createdAt&quot;), date);
+    }
+
+    // Остальные методы
+}</code></pre>
+<ul>
+<li>В методе build происходит сборка спецификации на основе переданных
+параметров.
+<ul>
+<li>Каждый параметр формирует свое условие фильтрации данных.</li>
+<li>Обработка каждого параметра вынесена в свой метод для удобства</li>
+<li>Внутри этих методов есть общая логика, связанная с проверкой наличия
+параметра.
+<ul>
+<li>Если он отсутствует, то возвращается cb.conjunction(), который ни на
+что не влияет, но нужен для работы цепочки методов.</li>
+</ul></li>
+</ul></li>
+<li>Спецификация представляет собой лямбда-функцию с тремя параметрами:
+<ul>
+<li>Объект root (Root<T>), который считается представлением сущности.
+<ul>
+<li>С помощью него мы указываем, по какому свойству нужно выполнять
+фильтрацию, включая обращение к свойствам зависимых сущностей</li>
+</ul></li>
+<li>Объект cb (CriteriaBuilder), который предоставляет методы для
+создания фильтров — equal(), like() и greaterThan()</li>
+<li>Объект query (CriteriaQuery<T>), который отвечает за формирование
+правильной структуры запроса.
+<ul>
+<li>Еще с его помощью можно указывать используемые колонки, таблицы,
+условия фильтрации и сортировки данных</li>
+</ul></li>
+</ul></li>
+<li>Использование спецификации в контроллере
+<ul>
+<li>В метод приходят параметры для фильтрации и страница, которую нужно
+выбрать</li>
+<li>На основе параметров для фильтрации формируется спецификация</li>
+<li>Выполняется выборка данных по спецификации и с учетом указанной
+страницы данных.
+<ul>
+<li>Из page вычитается единица, потому что иначе получится запрос LIMIT
+10 OFFSET 10 вместо LIMIT 10 OFFSET 0</li>
+</ul></li>
+<li>Возвращенный результат Page<Post> преобразуется в Page<PostDTO> с
+помощью встроенного в Page метода map(),
+<ul>
+<li>который работает точно так же, как map() в стримах</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>@Autowired
+private PostSpecification specBuilder;
+....
+@GetMapping(&quot;/posts&quot;)
+@ResponseStatus(HttpStatus.OK)
+public Page&lt;PostDTO&gt; index(PostParamsDTO params, @RequestParam(defaultValue = &quot;1&quot;) int page) {
+  var spec = specBuilder.build(params);
+  // Возвращается Page&lt;PostDTO&gt;
+  var posts = repository.findAll(spec, PageRequest.of(page - 1, 10));
+  var result = posts.map(postMapper::map);
+
+  return result;
+}</code></pre>
+<h2 id="слой-сервисов">Слой сервисов</h2>
+<ul>
+<li>сервисы отвечают за:
+<ul>
+<li>Взаимодействием между сущностями и их отображением на базу</li>
+<li>Преобразованием из DTO и в DTO</li>
+<li>Работу с исключениями, их генерацию и обработку</li>
+</ul></li>
+<li><blockquote>
+<p>сервисы не отвечают за логику приложения (Application Logic) с точки
+зрения HTTP — например, работа с HTTP-запросом или HTTP-ответом</p>
+</blockquote></li>
+</ul>
+<h2 id="аутентификация">Аутентификация</h2>
+<ul>
+<li>аутентификация в Spring Boot работает с помощью пакета Spring
+Security.
+<ul>
+<li>Это большая и сложная тема, по которой пишутся целые книги</li>
+</ul></li>
+<li>Все события во время аутентификации можно разделить на два уровня:
+<ul>
+<li>Пользователь и его функциональность.
+<ul>
+<li>Сюда входит все от регистрации до проверки доступов.</li>
+<li>Чтобы работать с этим уровнем, нужно взять представленный в Spring
+Boot набор интерфейсов и реализовать его
+<ul>
+<li>тогда часть нужной функциональности начнет работать
+автоматически</li>
+</ul></li>
+</ul></li>
+<li>Конкретный способ аутентификации.
+<ul>
+<li>В зависимости от способа аутентификации мы можем использовать разные
+механизмы и сторонние пакеты
+<ul>
+<li>например, OAuth или JWT-токены</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="jwt-токены">JWT-токены</h3>
+<ul>
+<li>Во время логина система будет формировать JWT-токен, который
+вернется клиенту.
+<ul>
+<li>Клиент будет пользоваться этим токеном для последующих запросов,
+<ul>
+<li>иначе ему будет отказано в доступе</li>
+</ul></li>
+</ul></li>
+<li>Установка зависимостей
+<ul>
+<li>implementation(“org.springframework.boot:spring-boot-starter-security”)</li>
+<li>implementation(“org.springframework.boot:spring-boot-starter-oauth2-resource-server”)</li>
+<li>testImplementation(“org.springframework.security:spring-security-test”)</li>
+</ul></li>
+<li>возьмем например два поля email и пароль
+<ul>
+<li>email — это самый частый логин, кроме него иногда используют номер
+телефона или никнейм</li>
+<li>passwordDigest — это специальный хэш, связанный с паролем.
+<ul>
+<li>Мы храним именно хэш, а не сам пароль, потому что с точки зрения
+безопасности,
+<ul>
+<li>пароли хранить в базе данных нельзя.</li>
+<li>Чтобы не запутаться, мы назвали это поле passwordDigest, а не
+password</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Внутри себя Spring Security работает с интерфейсом UserDetails
+<ul>
+<li>в который входят методы для работы с никнеймом, паролем и выдачей
+доступо</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@Table(name = &quot;users&quot;)
+public class User implements UserDetails, BaseEntity {
+    // Остальные поля
+
+    @Column(unique = true)
+    @Email
+    private String email;
+
+    @NotBlank
+    private String passwordDigest;
+
+    @Override
+    public String getPassword() {
+        return passwordDigest;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
+        return new ArrayList&lt;GrantedAuthority&gt;();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }</code></pre>
+<ul>
+<li>username, но под ним может скрываться что-то другое.
+<ul>
+<li>Например, в нашем случае геттер возвращает email.</li>
+</ul></li>
+<li>Кроме того, вместо пароля мы получаем passwordDigest</li>
+<li>сервис, реализующий интерфейс UserDetailsManager.
+<ul>
+<li>Через него Spring Boot будет выполнять CRUD-операции над
+пользователем.</li>
+<li>Для аутентификации реализуем метод loadUserByUsername():</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.stereotype.Service;
+
+import io.hexlet.spring.model.User;
+import io.hexlet.spring.repository.UserRepository;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsManager {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        // Нужно добавить в репозиторий findByEmail
+        var user = userRepository.findByEmail(email)
+                .orElseThrow(() -&gt; new UsernameNotFoundException(&quot;User not found&quot;));
+        return user;
+    }
+
+    @Override
+    public void createUser(UserDetails userData) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(&quot;Unimplemented method &#39;createUser&#39;&quot;);
+    }
+
+    @Override
+    public void updateUser(UserDetails user) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(&quot;Unimplemented method &#39;updateUser&#39;&quot;);
+    }
+
+    @Override
+    public void deleteUser(String username) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(&quot;Unimplemented method &#39;deleteUser&#39;&quot;);
+    }
+
+    @Override
+    public void changePassword(String oldPassword, String newPassword) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(&quot;Unimplemented method &#39;changePassword&#39;&quot;);
+    }
+
+    @Override
+    public boolean userExists(String username) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(&quot;Unimplemented method &#39;userExists&#39;&quot;);
+    }
+}</code></pre>
+<ul>
+<li>Дальше нам понадобится механизм хеширования пароля. Чтобы работать с
+ним, создадим бин:</li>
+</ul>
+<pre><code>import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+public class EncodersConfig {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}</code></pre>
+<ul>
+<li>указываем, что Spring Security должен использовать наши
+компоненты:</li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import io.hexlet.spring.service.CustomUserDetailsService;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private CustomUserDetailsService userService;
+
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+                .build();
+    }
+
+    @Bean
+    public AuthenticationProvider daoAuthProvider(AuthenticationManagerBuilder auth) {
+        var provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userService);
+        provider.setPasswordEncoder(passwordEncoder);
+        return provider;
+    }
+}</code></pre>
+<ul>
+<li>Осталось создать утилиту для генерации JWT-токена,
+<ul>
+<li>и мы будем готовы реализовать аутентификацию.</li>
+<li>Генерация состоит из двух вещей — подготовки токена и его
+шифрования.</li>
+<li>Рассмотрим пример класса, который делает эти операции:</li>
+</ul></li>
+</ul>
+<pre><code>import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.stereotype.Component;
+
+@Component
+public class JWTUtils {
+
+    @Autowired
+    private JwtEncoder encoder;
+
+    public String generateToken(String username) {
+        Instant now = Instant.now();
+        JwtClaimsSet claims = JwtClaimsSet.builder()
+                .issuer(&quot;self&quot;)
+                .issuedAt(now)
+                .expiresAt(now.plus(1, ChronoUnit.HOURS))
+                .subject(username)
+                .build();
+        return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+    }
+}</code></pre>
+<ul>
+<li>В коде выше используется JwtEncoder.
+<ul>
+<li>Он добавляется в класс EncodersConfig, в который мы уже добавили
+PasswordEncoder:</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
+
+import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
+
+import io.hexlet.spring.component.RsaKeyProperties;
+
+@Configuration
+public class EncodersConfig {
+
+    @Autowired
+    // Создается ниже
+    private RsaKeyProperties rsaKeys;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    JwtEncoder jwtEncoder() {
+        JWK jwk = new RSAKey.Builder(rsaKeys.getPublicKey()).privateKey(rsaKeys.getPrivateKey()).build();
+        JWKSource&lt;SecurityContext&gt; jwks = new ImmutableJWKSet&lt;&gt;(new JWKSet(jwk));
+        return new NimbusJwtEncoder(jwks);
+    }
+
+    @Bean
+    JwtDecoder jwtDecoder() {
+        return NimbusJwtDecoder.withPublicKey(rsaKeys.getPublicKey()).build();
+    }
+}</code></pre>
+<ul>
+<li>Для работы JwtEncoderнужны RSA-ключи — их можно сгенерировать,
+выполнив в терминале команды:
+<ul>
+<li>openssl genpkey -out private.pem -algorithm RSA -pkeyopt
+rsa_keygen_bits:2048</li>
+<li>openssl rsa -in private.pem -pubout -out public.pem</li>
+</ul></li>
+<li>в application.yml и указать путь к ключам</li>
+</ul>
+<pre><code># src/main/resources/certs/
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem</code></pre>
+<ul>
+<li>создаем компонент, который прочитает эти ключи и сделает их
+доступными в коде:</li>
+</ul>
+<pre><code>import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Component
+@ConfigurationProperties(prefix = &quot;rsa&quot;)
+@Setter
+@Getter
+public class RsaKeyProperties {
+    private RSAPublicKey publicKey;
+    private RSAPrivateKey privateKey;
+}</code></pre>
+<ul>
+<li><blockquote>
+<p>Не забудьте, что в реальных проектах хранить приватный ключ в
+репозитории нельзя. Доступ к приватному ключу должен быть ограничен.</p>
+</blockquote></li>
+<li>В нашем случае аутентификация — это обычный POST-запрос, в котором
+передаются электронная почта и пароль.
+<ul>
+<li>Для унификации с предыдущими настройками, мы будем использовать имя
+username вместо почты email.</li>
+<li>В итоге у нас получится такой DTO:</li>
+</ul></li>
+</ul>
+<pre><code>@Setter
+@Getter
+public class AuthRequest {
+    private String username;
+    private String password;
+}</code></pre>
+<ul>
+<li>контроллер</li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.hexlet.spring.dto.AuthRequest;
+import io.hexlet.spring.util.JWTUtils;
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class AuthenticationController {
+    @Autowired
+    private JWTUtils jwtUtils;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @PostMapping(&quot;/login&quot;)
+    public String create(@RequestBody AuthRequest authRequest) {
+        var authentication = new UsernamePasswordAuthenticationToken(
+            authRequest.getUsername(), authRequest.getPassword());
+
+        authenticationManager.authenticate(authentication);
+
+        var token = jwtUtils.generateToken(authRequest.getUsername());
+        return token;
+    }
+}</code></pre>
+<ul>
+<li>Все проделанные шаги свелись к строчке
+authenticationManager.authenticate(authentication).
+<ul>
+<li>В итоге внутри кода выполняется поиск пользователя в базе данных,
+хэширование пароля и сравнение.</li>
+<li>Если аутентификация прошла, выполнение продолжается дальше, если нет
+— код выбрасывает исключение.</li>
+<li>После аутентификации программа генерирует токен и возвращает его
+клиенту.</li>
+<li>С этого момента клиент сам следит за отправкой токена в последующих
+запросах к API.</li>
+<li>При этом мы должны убрать API из публичного доступа и включить
+проверку токена.</li>
+</ul></li>
+</ul>
+<h4 id="проверка-наличия-аутентификации">Проверка наличия
+аутентификации</h4>
+<ul>
+<li>Проверка аутентификации настраивается в конфигурации, помеченной
+аннотацией <span class="citation"
+data-cites="EnableWebSecurity">@EnableWebSecurity</span>.
+<ul>
+<li>фильтр, который применяется ко всем входящим запросам:</li>
+</ul></li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
+
+import io.hexlet.spring.service.CustomUserDetailsService;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    @Autowired
+    private JwtDecoder jwtDecoder;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private CustomUserDetailsService userService;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, HandlerMappingIntrospector introspector)
+            throws Exception {
+        // По умолчанию все запрещено
+        return http
+                .csrf(csrf -&gt; csrf.disable())
+                .authorizeHttpRequests(auth -&gt; auth
+                        // Разрешаем доступ только к /api/login, чтобы аутентифицироваться и получить токен
+                        .requestMatchers(&quot;/api/login&quot;).permitAll()
+                        .anyRequest().authenticated())
+                .sessionManagement(session -&gt; session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2ResourceServer((rs) -&gt; rs.jwt((jwt) -&gt; jwt.decoder(jwtDecoder)))
+                .httpBasic(Customizer.withDefaults())
+                .build();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+                .build();
+    }
+
+    @Bean
+    public AuthenticationProvider daoAuthProvider(AuthenticationManagerBuilder auth) {
+        var provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userService);
+        provider.setPasswordEncoder(passwordEncoder);
+        return provider;
+    }
+}</code></pre>
+<h4 id="извлечение-текущего-пользователя">Извлечение текущего
+пользователя</h4>
+<ul>
+<li>такое бывает нужно, когда создается какая-то сущность, у которой
+есть автор</li>
+</ul>
+<pre><code>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
+
+import io.hexlet.spring.model.User;
+import io.hexlet.spring.repository.UserRepository;
+
+@Component
+public class UserUtils {
+    @Autowired
+    private UserRepository userRepository;
+
+    public User getCurrentUser() {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+        var email = authentication.getName();
+        return userRepository.findByEmail(email).get();
+    }
+}</code></pre>
+<h2 id="профили">Профили</h2>
+<ul>
+<li>наборы окружения реализуются с помощью механизмов профайлов -
+Profiles
+<ul>
+<li>с их помощи можно включать специфические бины или параметры
+конфигурации без изменения исходного кода</li>
+</ul></li>
+<li>помимо среды Production, Development - добавляют Staging
+<ul>
+<li>предпродакшен - имитация окружения, приближенное к продакшену
+<ul>
+<li>тестирование перед деплоем</li>
+</ul></li>
+</ul></li>
+<li>активация профайла двумя способами:
+<ul>
+<li>с помощью окружения SPRING_PROFILES_ACTIVE
+<ul>
+<li>export SPRING-PROFILES_ACTIVE=developmnet</li>
+<li>java -jar myproject.jar</li>
+</ul></li>
+<li>с помощью аргумента во время запуска
+<ul>
+<li>java -jar myproject.jar –spring.profiles.active=development</li>
+<li>или, ./gradlew run –args=‘–spring,profiles.active=development’</li>
+</ul></li>
+</ul></li>
+<li>формирование профайла</li>
+<li>аннотация <span class="citation"
+data-cites="Profile">@Profile</span> для <span class="citation"
+data-cites="Component">@Component</span> или <span class="citation"
+data-cites="Configuration">@Configuration</span>
+<ul>
+<li>указывает на то, что эти классы используются в определенном
+окружении</li>
+</ul></li>
+<li>Конфигурационные параметры предпочтительно подменять с помощью
+файлов,
+<ul>
+<li>специфичных для своих профилей: application-{profile}.yml
+расположенных рядом с оригинальным application.yml:</li>
+<li>application-production.yml</li>
+<li>application-staging.yml</li>
+</ul></li>
+</ul>
+<h2 id="работа-со-статическими-ресурсами">Работа со статическими
+ресурсами</h2>
+<ul>
+<li>по умолчанию они отдаются из директории src/main/resources/static
+<ul>
+<li>содержимое может выглядеть так</li>
+</ul></li>
+</ul>
+<pre><code>src/main/resources/static/images/logo.png
+src/main/resources/static/css/style.css
+src/main/resources/static/js/app.js
+
+Если предположить, что сервер стартует на 8080 порту, то получить доступ к этим файлам можно по следующим ссылкам:
+
+http://localhost:8080/images/logo.png
+http://localhost:8080/css/style.css
+http://localhost:8080/js/app.js
+
+Или то же самое внутри HTML-файлов:
+
+&lt;img src=&quot;/images/logo.png&quot; alt=&quot;Logo&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;
+&lt;script src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>Если ресурс не найден, то Spring Boot автоматически возвращает
+ошибку 404.
+<ul>
+<li>Страницу с ошибкой можно кастомизировать,
+<ul>
+<li>для этого необходимо создать файл 404.html в директории
+src/main/resources/public/error.</li>
+</ul></li>
+</ul></li>
+<li>Входную страницу сайта или сервиса на Spring Boot можно получить
+двумя способами:
+<ul>
+<li>С помощью обработчика маршрута главной страницы
+http://localhost:8080</li>
+<li>С помощью статического файла index.html добавленного в директорию
+src/main/resources/public.
+<ul>
+<li>Spring Boot отдает этот файл автоматически при запросе на
+http://localhost:8080.</li>
+<li>Это самый распространенный способ при наличии фронтенд-части,
+создаваемой отдельно от Spring Boot</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Home Page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to Hexlet!&lt;/h1&gt;
+    &lt;img src=&quot;/images/logo.png&quot; alt=&quot;Logo&quot; /&gt;
+    &lt;script src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="настройка-бинов-1">Настройка бинов</h2>
+<ul>
+<li>BeanPostProcessor - определение дополнительной логики перед
+созданием Spring бина
+<ul>
+<li>после завершится создание экземпляра, конфигурирование и
+инициализация бина</li>
+<li>можно определить несколько BeanPostProcessor, очередность через
+order</li>
+</ul></li>
+<li>состоит ровно из двух методов обратного вызова</li>
+<li>все экземпляры BeanPostProcessor регистрируются в отсортированном
+виде и применяются ко всем последующим бинам в контейнере</li>
+</ul>
+<pre><code>import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+
+// BEGIN (write your solution here)
+@Component
+public class CustomBeanPostProcessor implements BeanPostProcessor {
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(&quot;Called postProcessBeforeInitialization for bean: &quot; + beanName);
+
+        return bean;
+    }
+
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(&quot;Called postProcessAfterInitialization for bean: &quot; + beanName);
+
+        return bean;
+    }
+}</code></pre>
+<pre><code>package io.hexlet.app;
+
+import java.lang.reflect.Proxy;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+
+// BEGIN (write your solution here)
+@Component
+@Slf4j
+public class CustomBeanPostProcessor implements BeanPostProcessor{
+    private Map&lt;String, String&gt; beans = new HashMap&lt;&gt;();
+
+    public Object postProcessBeforeInitialization(Object bean, String beanName)
+            throws BeansException {
+
+        if(bean.getClass().isAnnotationPresent(Inspect.class)) {
+            var level = bean.getClass().getAnnotation(Inspect.class).level();
+
+            beans.put(beanName, level);
+        }
+
+        return bean;
+    }
+
+    public Object postProcessAfterInitialization(Object bean, String beanName)
+            throws BeansException {
+        if(bean.getClass().isAnnotationPresent(Inspect.class)) {
+
+            if (bean.getClass().getInterfaces().length == 0) {
+                return bean; 
+            };
+
+            Object proxyInstance = Proxy.newProxyInstance(
+                bean.getClass().getClassLoader(),
+                bean.getClass().getInterfaces(),
+
+                (proxy, method, args) -&gt; {
+                    var level = beans.getOrDefault(beanName, &quot;debug&quot;);
+                    String params = (args == null) ? &quot;[]&quot; : Arrays.toString(args);
+                    String message = &quot;Was called method: &quot; + method.getName() + &quot;() with parameters: &quot; + params;
+
+                    if (&quot;info&quot;.equalsIgnoreCase(level)) {
+                        log.info(message);
+                    } else {
+                        log.debug(message);
+                    }
+
+                    return method.invoke(bean, args);
+                }
+            );
+
+            return proxyInstance;
+        }
+
+        return bean;
+    }
+}
+// END
+
+    <button id="scrollTopBtn">↑</button>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const toc = document.getElementById("toc-list");
+    const headers = document.querySelectorAll("h2, h3, h4");
+
+    let currentH2;
+    let currentH3;
+
+    headers.forEach(h => {
+
+        if (!h.id) {
+            h.id = h.textContent
+                .toLowerCase()
+                .replace(/[^\wа-яё]+/g,"-")
+                .replace(/^-|-$/g,"");
+        }
+
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+
+        a.textContent = h.textContent;
+        a.href = "#" + h.id;
+
+        li.appendChild(a);
+
+        if (h.tagName === "H2") {
+
+            currentH2 = document.createElement("ul");
+
+            const root = document.createElement("li");
+            root.appendChild(a);
+            root.appendChild(currentH2);
+
+            toc.appendChild(root);
+
+            currentH3 = null;
+        }
+
+        else if (h.tagName === "H3") {
+
+            currentH3 = document.createElement("ul");
+
+            const item = document.createElement("li");
+            item.appendChild(a);
+            item.appendChild(currentH3);
+
+            currentH2.appendChild(item);
+        }
+
+        else if (h.tagName === "H4") {
+
+            const item = document.createElement("li");
+            item.appendChild(a);
+
+            if (currentH3) currentH3.appendChild(item);
+        }
+
+    });
+
+
+    const btn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+
+        if (document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+
+    });
+
+    btn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+</script>
+</code></pre>
+</body>
+</html>

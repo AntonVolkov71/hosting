@@ -55,6 +55,9 @@ pandoc "я_практикум_архитектур.md" `
   - JS генерация оглавления + кнопка вверх
     -  Добавить перед </body>
 ```
+<button id="scrollTopBtn">↑</button>
+
+
 <script>
 
 document.addEventListener("DOMContentLoaded", () => {
