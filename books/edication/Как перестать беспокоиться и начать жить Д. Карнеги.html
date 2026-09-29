@@ -351,6 +351,17 @@
     </li>
 </ul>
 <hr/>
+<ul>
+    <li>Растворись в делах, иначе растворишься в отчаянии</li>
+</ul>
+<hr/>
+<ul>
+    <li>Люди больше беспокоятся о пустяках, чем о главном</li>
+</ul>
+<hr/>
+<ul>
+    <li>Жизнь очень коротка, чтобы тратить её на пустяки</li>
+</ul>
 
 <button id="scrollTopBtn">↑</button>
 
@@ -370,8 +381,8 @@
             if (!h.id) {
                 h.id = h.textContent
                     .toLowerCase()
-                    .replace(/[^\wа-яё]+/g,"-")
-                    .replace(/^-|-$/g,"");
+                    .replace(/[^\wа-яё]+/g, "-")
+                    .replace(/^-|-$/g, "");
             }
 
             const li = document.createElement("li");
@@ -393,9 +404,7 @@
                 toc.appendChild(root);
 
                 currentH3 = null;
-            }
-
-            else if (h.tagName === "H3") {
+            } else if (h.tagName === "H3") {
 
                 currentH3 = document.createElement("ul");
 
@@ -404,9 +413,7 @@
                 item.appendChild(currentH3);
 
                 currentH2.appendChild(item);
-            }
-
-            else if (h.tagName === "H4") {
+            } else if (h.tagName === "H4") {
 
                 const item = document.createElement("li");
                 item.appendChild(a);
